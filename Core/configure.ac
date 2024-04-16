@@ -87,7 +87,7 @@ m4_include([.M4/ConfigDirectory.m4])
 MYAC_CUSTOMIZE_LIBRARY_DIR([Lib])
 MYAC_CUSTOMIZE_BINARY_DIR([Bin])
 MYAC_CUSTOMIZE_INCLUDE_DIR(
-    [Include], [Sample], [.Config], [Config.h])
+    [Include], [Picross], [.Config], [Config.h])
 
 dnl----------------------------------------------------------------
 dnl
@@ -166,7 +166,7 @@ AC_CONFIG_FILES([
 ])
 
 AC_CONFIG_FILES([
-    Include/Sample/.Config/ConfiguredSample.h
+    Include/Picross/.Config/ConfiguredPicross.h
 ])
 
 dnl
