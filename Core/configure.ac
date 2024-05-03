@@ -74,8 +74,8 @@ dnl
 dnl   Project Name Space.
 dnl
 
-SAMPLE_CNF_NAMESPACE=Sample
-AC_SUBST(SAMPLE_CNF_NAMESPACE)
+PICROSS_CNF_NAMESPACE=Picross
+AC_SUBST(PICROSS_CNF_NAMESPACE)
 
 dnl----------------------------------------------------------------
 dnl

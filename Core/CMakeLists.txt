@@ -80,7 +80,7 @@ Include (${COMMON_CMAKE_DIR}/CheckOverride.cmake)
 ##    Project Name Space.
 ##
 
-set(SAMPLE_CNF_NAMESPACE    Sample)
+set(PICROSS_CNF_NAMESPACE   Picross)
 
 ##----------------------------------------------------------------
 ##
