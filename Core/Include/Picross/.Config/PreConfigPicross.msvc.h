@@ -30,7 +30,7 @@
 **    スクリプトによって設定された名前空間。
 **/
 
-#define     PICROSS_CNF_NS              Sample
+#define     PICROSS_CNF_NS              Picross
 
 /**
 **    名前空間。
