@@ -15,17 +15,17 @@
 /**
 **      プロジェクトの設定。
 **
-**      @file       Common/SampleSettings.h
+**      @file       Common/PicrossSettings.h
 **/
 
 #if !defined( SAMPLE_CONFIG_INCLUDED_SAMPLE_SETTINGS_H )
 #    define   SAMPLE_CONFIG_INCLUDED_SAMPLE_SETTINGS_H
 
 //  スクリプトによる設定値が書き込まれたヘッダを読み込む。  //
-#if defined( SAMPLE_USE_PRE_CONFIGURED_MSVC )
-#    include    "Sample/.Config/PreConfigSample.msvc.h"
+#if defined( PICROSS_USE_PRE_CONFIGURED_MSVC )
+#    include    "Picross/.Config/PreConfigPicross.msvc.h"
 #else
-#    include    "Sample/.Config/ConfiguredSample.h"
+#    include    "Picross/.Config/ConfiguredPicross.h"
 #endif
 
 SAMPLE_NAMESPACE_BEGIN

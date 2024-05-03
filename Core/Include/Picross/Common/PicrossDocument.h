@@ -21,7 +21,7 @@
 #if !defined( SAMPLE_CONFIG_INCLUDED_SAMPLE_DOCUMENT_H )
 #    define   SAMPLE_CONFIG_INCLUDED_SAMPLE_DOCUMENT_H
 
-#include    "SampleSettings.h"
+#include    "PicrossSettings.h"
 
 #include    <string>
 
