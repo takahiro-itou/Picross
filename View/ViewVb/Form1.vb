@@ -2,7 +2,7 @@
 
     Private Sub RunCount(ByVal message As String)
         Dim result As Integer
-        Dim objWrapper As SampleWrapper.Common.SampleDocument = New SampleWrapper.Common.SampleDocument()
+        Dim objWrapper As PicrossWrapper.Common.PicrossDocument = New PicrossWrapper.Common.PicrossDocument()
 
         objWrapper.setMessage(message)
         result = objWrapper.countAlphabet()
