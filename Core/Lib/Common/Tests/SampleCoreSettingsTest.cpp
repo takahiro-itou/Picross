@@ -19,7 +19,7 @@
 **/
 
 #include    "TestDriver.h"
-#include    "Sample/Common/SampleSettings.h"
+#include    "Picross/Common/PicrossSettings.h"
 
 SAMPLE_NAMESPACE_BEGIN
 
