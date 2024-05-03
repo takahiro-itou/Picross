@@ -15,7 +15,7 @@
 /**
 **      スクリプトによる設定値が書き込まれるヘッダファイル。
 **
-**      @file       .Config/ConfiguredSample.h.in
+**      @file       .Config/ConfiguredPicross.h.in
 **/
 
 #if !defined( PICROSS_CONFIG_INCLUDED_CONFIGURED_PICROSS_H )
