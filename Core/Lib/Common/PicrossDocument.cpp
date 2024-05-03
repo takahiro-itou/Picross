@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2022, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -13,15 +13,15 @@
 *************************************************************************/
 
 /**
-**      An Implementation of SampleDocument class.
+**      An Implementation of PicrossDocument class.
 **
-**      @file       Common/SampleDocument.cpp
+**      @file       Common/PicrossDocument.cpp
 **/
 
 #include    "Picross/Common/PicrossDocument.h"
 
 
-SAMPLE_NAMESPACE_BEGIN
+PICROSS_NAMESPACE_BEGIN
 namespace  Common  {
 
 namespace  {
@@ -129,4 +129,4 @@ SampleDocument::setMessage(
 //
 
 }   //  End of namespace  Common
-SAMPLE_NAMESPACE_END
+PICROSS_NAMESPACE_END
