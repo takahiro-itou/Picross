@@ -36,8 +36,8 @@ DIST_NOINST_HEADER_FILES    =  \
         ${EXTRA_NOINST_HEADER_FILES}
 
 INCLIB_HEADER_FILES         =  \
-        ${INCLIB_SOURCE_DIR}/SampleDocument.h  \
-        ${INCLIB_SOURCE_DIR}/SampleSettings.h  \
+        ${INCLIB_SOURCE_DIR}/PicrossDocument.h  \
+        ${INCLIB_SOURCE_DIR}/PicrossSettings.h  \
         ${EXTRA_LIBRARY_HEADER_FILES}
 
 INCLIB_NODIST_HEADER_FILES  =

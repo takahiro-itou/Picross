@@ -19,7 +19,7 @@
 **/
 
 #include    "TestDriver.h"
-#include    "Sample/Common/SampleDocument.h"
+#include    "Picross/Common/PicrossDocument.h"
 
 SAMPLE_NAMESPACE_BEGIN
 namespace  Common  {

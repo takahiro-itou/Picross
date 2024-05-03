@@ -11,6 +11,6 @@ DIST_SUBDIRS    =  .M4  .CMake  $(SUBDIRS)
 ##
 
 dist_noinst_DATA        =  \
-        SampleConfig.cmake.in   \
+        PicrossConfig.cmake.in  \
         CMakeLists.txt
 

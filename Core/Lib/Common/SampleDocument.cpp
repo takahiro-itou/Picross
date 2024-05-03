@@ -18,7 +18,7 @@
 **      @file       Common/SampleDocument.cpp
 **/
 
-#include    "Sample/Common/SampleDocument.h"
+#include    "Picross/Common/PicrossDocument.h"
 
 
 SAMPLE_NAMESPACE_BEGIN
