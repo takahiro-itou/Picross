@@ -13,9 +13,9 @@
 *************************************************************************/
 
 /**
-**      An Implementation of Test Case 'SampleCoreSettings'.
+**      An Implementation of Test Case 'PicrossCoreSettings'.
 **
-**      @file       Common/Tests/SampleCoreSettingsTest.cpp
+**      @file       Common/Tests/PicrossCoreSettingsTest.cpp
 **/
 
 #include    "TestDriver.h"
@@ -25,15 +25,15 @@ PICROSS_NAMESPACE_BEGIN
 
 //========================================================================
 //
-//    SampleCoreSettingsTest  class.
+//    PicrossCoreSettingsTest  class.
 //
 /**
-**    クラス SampleCoreSettings の単体テスト。
+**    クラス PicrossCoreSettings の単体テスト。
 **/
 
-class  SampleCoreSettingsTest : public  TestFixture
+class  PicrossCoreSettingsTest : public  TestFixture
 {
-    CPPUNIT_TEST_SUITE(SampleCoreSettingsTest);
+    CPPUNIT_TEST_SUITE(PicrossCoreSettingsTest);
     CPPUNIT_TEST(testNameSpace);
     CPPUNIT_TEST_SUITE_END();
 
@@ -45,14 +45,14 @@ private:
     void  testNameSpace();
 };
 
-CPPUNIT_TEST_SUITE_REGISTRATION( SampleCoreSettingsTest );
+CPPUNIT_TEST_SUITE_REGISTRATION( PicrossCoreSettingsTest );
 
 //========================================================================
 //
 //    Tests.
 //
 
-void  SampleCoreSettingsTest::testNameSpace()
+void  PicrossCoreSettingsTest::testNameSpace()
 {
     return;
 }
