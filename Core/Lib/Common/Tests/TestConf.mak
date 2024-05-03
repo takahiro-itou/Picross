@@ -5,8 +5,8 @@
 
 EXTRATESTS              =
 TESTS                   =  \
-        SampleCoreSettingsTest  \
-        SampleDocumentTest      \
+        PicrossCoreSettingsTest  \
+        PicrossDocumentTest      \
         ${EXTRATESTS}
 ##
 ##    Test Configurations.
@@ -31,6 +31,6 @@ TEST_LDFLAGS_COMMON         +=
 ##    Test Programs.
 ##
 
-SampleCoreSettingsTest_SOURCES  =  SampleCoreSettingsTest.cpp
-SampleDocumentTest_SOURCES      =  SampleDocumentTest.cpp
+PicrossCoreSettingsTest_SOURCES  =  PicrossCoreSettingsTest.cpp
+PicrossDocumentTest_SOURCES      =  PicrossDocumentTest.cpp
 

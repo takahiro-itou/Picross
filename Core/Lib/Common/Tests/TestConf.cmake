@@ -4,12 +4,12 @@
 ##    テストの設定。
 ##
 
-add_test(NAME   SampleCoreSettingsTest
-    COMMAND  $<TARGET_FILE:SampleCoreSettingsTest>
+add_test(NAME   PicrossCoreSettingsTest
+    COMMAND  $<TARGET_FILE:PicrossCoreSettingsTest>
 )
 
-add_test(NAME   SampleDocumentTest
-    COMMAND  $<TARGET_FILE:SampleDocumentTest>
+add_test(NAME   PicrossDocumentTest
+    COMMAND  $<TARGET_FILE:PicrossDocumentTest>
 )
 
 ##----------------------------------------------------------------
@@ -17,5 +17,5 @@ add_test(NAME   SampleDocumentTest
 ##    テストプログラムのビルド。
 ##
 
-add_executable(SampleCoreSettingsTest   SampleCoreSettingsTest.cpp)
-add_executable(SampleDocumentTest       SampleDocumentTest.cpp)
+add_executable(PicrossCoreSettingsTest  PicrossCoreSettingsTest.cpp)
+add_executable(PicrossDocumentTest      PicrossDocumentTest.cpp)

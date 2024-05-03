@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2022, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -21,7 +21,7 @@
 #include    "TestDriver.h"
 #include    "Picross/Common/PicrossSettings.h"
 
-SAMPLE_NAMESPACE_BEGIN
+PICROSS_NAMESPACE_BEGIN
 
 //========================================================================
 //
@@ -57,7 +57,7 @@ void  SampleCoreSettingsTest::testNameSpace()
     return;
 }
 
-SAMPLE_NAMESPACE_END
+PICROSS_NAMESPACE_END
 
 //========================================================================
 //
