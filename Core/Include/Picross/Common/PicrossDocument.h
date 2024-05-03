@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2022, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -18,14 +18,14 @@
 **      @file       Common/SampleDocument.h
 **/
 
-#if !defined( SAMPLE_CONFIG_INCLUDED_SAMPLE_DOCUMENT_H )
-#    define   SAMPLE_CONFIG_INCLUDED_SAMPLE_DOCUMENT_H
+#if !defined( PICROSS_CONFIG_INCLUDED_PICROSS_DOCUMENT_H )
+#    define   PICROSS_CONFIG_INCLUDED_PICROSS_DOCUMENT_H
 
 #include    "PicrossSettings.h"
 
 #include    <string>
 
-SAMPLE_NAMESPACE_BEGIN
+PICROSS_NAMESPACE_BEGIN
 namespace  Common  {
 
 //========================================================================
@@ -139,6 +139,6 @@ public:
 };
 
 }   //  End of namespace  Common
-SAMPLE_NAMESPACE_END
+PICROSS_NAMESPACE_END
 
 #endif
