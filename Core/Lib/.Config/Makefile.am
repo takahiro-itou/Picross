@@ -39,7 +39,7 @@ INCLIB_HEADER_FILES         =  \
         ${EXTRA_LIBRARY_HEADER_FILES}
 
 INCLIB_NODIST_HEADER_FILES  =  \
-        ${INCLIB_BINARY_DIR}/ConfiguredSample.h
+        ${INCLIB_BINARY_DIR}/ConfiguredPicross.h
 
 LIBRARY_INSTALL_SRCFILES    =  \
         ${LIBRARY_INLINE_FILES}
