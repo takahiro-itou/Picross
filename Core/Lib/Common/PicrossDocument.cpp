@@ -31,7 +31,7 @@ namespace  {
 
 //========================================================================
 //
-//    SampleDocument  class.
+//    PicrossDocument  class.
 //
 
 //========================================================================
@@ -43,7 +43,7 @@ namespace  {
 //    インスタンスを初期化する
 //  （デフォルトコンストラクタ）。
 
-SampleDocument::SampleDocument()
+PicrossDocument::PicrossDocument()
     : m_message()
 {
 }
@@ -53,7 +53,7 @@ SampleDocument::SampleDocument()
 //  （デストラクタ）。
 //
 
-SampleDocument::~SampleDocument()
+PicrossDocument::~PicrossDocument()
 {
 }
 
@@ -82,7 +82,7 @@ SampleDocument::~SampleDocument()
 //
 
 int
-SampleDocument::countAlphabet()  const
+PicrossDocument::countAlphabet()  const
 {
     const   size_t  len = this->m_message.length();
     size_t  cnt = 0;
@@ -112,7 +112,7 @@ SampleDocument::countAlphabet()  const
 //    メッセージを設定する。
 
 void
-SampleDocument::setMessage(
+PicrossDocument::setMessage(
         const  std::string  &message)
 {
     this->m_message = message;

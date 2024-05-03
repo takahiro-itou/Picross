@@ -13,9 +13,9 @@
 *************************************************************************/
 
 /**
-**      An Interface of SampleDocument class.
+**      An Interface of PicrossDocument class.
 **
-**      @file       Common/SampleDocument.h
+**      @file       Common/PicrossDocument.h
 **/
 
 #if !defined( PICROSS_CONFIG_INCLUDED_PICROSS_DOCUMENT_H )
@@ -30,10 +30,10 @@ namespace  Common  {
 
 //========================================================================
 //
-//    SampleDocument  class.
+//    PicrossDocument  class.
 //
 
-class  SampleDocument
+class  PicrossDocument
 {
 
 //========================================================================
@@ -52,14 +52,14 @@ public:
     **  （デフォルトコンストラクタ）。
     **
     **/
-    SampleDocument();
+    PicrossDocument();
 
     //----------------------------------------------------------------
     /**   インスタンスを破棄する
     **  （デストラクタ）。
     **
     **/
-    virtual  ~SampleDocument();
+    virtual  ~PicrossDocument();
 
 //========================================================================
 //
@@ -135,7 +135,7 @@ private:
 //
 public:
     //  テストクラス。  //
-    friend  class   SampleDocumentTest;
+    friend  class   PicrossDocumentTest;
 };
 
 }   //  End of namespace  Common

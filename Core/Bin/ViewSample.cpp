@@ -26,7 +26,7 @@ using   namespace   PICROSS_NAMESPACE;
 
 int  main(int argc, char * argv[])
 {
-    Common::SampleDocument  doc;
+    Common::PicrossDocument doc;
 
     std::string text("Hello, World!");
 
