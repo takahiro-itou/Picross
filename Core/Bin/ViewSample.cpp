@@ -18,7 +18,7 @@
 **      @file       Bin/ViewSample.cpp
 **/
 
-#include    "Sample/Common/SampleDocument.h"
+#include    "Picross/Common/PicrossDocument.h"
 
 #include    <iostream>
 
