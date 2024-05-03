@@ -17,12 +17,12 @@ set(INCLIB_BINARY_DIR       "${INCLUDE_BINARY_DIR}/${MODULE_DIR_NAME}")
 ##
 
 set(LIBRARY_SOURCE_FILES
-       SampleDocument.cpp
+       PicrossDocument.cpp
 )
 
 set(INCLIB_HEADER_FILES
-        ${INCLIB_SOURCE_DIR}/SampleDocument.h
-        ${INCLIB_SOURCE_DIR}/SampleSettings.h
+        ${INCLIB_SOURCE_DIR}/PicrossDocument.h
+        ${INCLIB_SOURCE_DIR}/PicrossSettings.h
 )
 
 ##----------------------------------------------------------------
