@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2022, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -13,27 +13,27 @@
 *************************************************************************/
 
 /**
-**      An Interface of SampleDocument class.
+**      An Interface of PicrossDocument class.
 **
-**      @file       Common/SampleDocument.h
+**      @file       Common/PicrossDocument.h
 **/
 
-#if !defined( SAMPLE_CONFIG_INCLUDED_SAMPLE_DOCUMENT_H )
-#    define   SAMPLE_CONFIG_INCLUDED_SAMPLE_DOCUMENT_H
+#if !defined( PICROSS_CONFIG_INCLUDED_PICROSS_DOCUMENT_H )
+#    define   PICROSS_CONFIG_INCLUDED_PICROSS_DOCUMENT_H
 
 #include    "PicrossSettings.h"
 
 #include    <string>
 
-SAMPLE_NAMESPACE_BEGIN
+PICROSS_NAMESPACE_BEGIN
 namespace  Common  {
 
 //========================================================================
 //
-//    SampleDocument  class.
+//    PicrossDocument  class.
 //
 
-class  SampleDocument
+class  PicrossDocument
 {
 
 //========================================================================
@@ -52,14 +52,14 @@ public:
     **  （デフォルトコンストラクタ）。
     **
     **/
-    SampleDocument();
+    PicrossDocument();
 
     //----------------------------------------------------------------
     /**   インスタンスを破棄する
     **  （デストラクタ）。
     **
     **/
-    virtual  ~SampleDocument();
+    virtual  ~PicrossDocument();
 
 //========================================================================
 //
@@ -135,10 +135,10 @@ private:
 //
 public:
     //  テストクラス。  //
-    friend  class   SampleDocumentTest;
+    friend  class   PicrossDocumentTest;
 };
 
 }   //  End of namespace  Common
-SAMPLE_NAMESPACE_END
+PICROSS_NAMESPACE_END
 
 #endif

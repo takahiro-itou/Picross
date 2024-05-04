@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2023, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -13,28 +13,28 @@
 *************************************************************************/
 
 /**
-**      An Implementation of Test Case 'SampleDocument'.
+**      An Implementation of Test Case 'PicrossDocument'.
 **
-**      @file       Common/Tests/SampleDocumentTest.cpp
+**      @file       Common/Tests/PicrossDocumentTest.cpp
 **/
 
 #include    "TestDriver.h"
 #include    "Picross/Common/PicrossDocument.h"
 
-SAMPLE_NAMESPACE_BEGIN
+PICROSS_NAMESPACE_BEGIN
 namespace  Common  {
 
 //========================================================================
 //
-//    SampleDocumentTest  class.
+//    PicrossDocumentTest  class.
 //
 /**
-**    クラス SampleDocument の単体テスト。
+**    クラス PicrossDocument の単体テスト。
 **/
 
-class  SampleDocumentTest : public  TestFixture
+class  PicrossDocumentTest : public  TestFixture
 {
-    CPPUNIT_TEST_SUITE(SampleDocumentTest);
+    CPPUNIT_TEST_SUITE(PicrossDocumentTest);
     CPPUNIT_TEST(testCtor);
     CPPUNIT_TEST(testCountAlphabet1);
     CPPUNIT_TEST(testCountAlphabet2);
@@ -53,23 +53,23 @@ private:
 
 };
 
-CPPUNIT_TEST_SUITE_REGISTRATION( SampleDocumentTest );
+CPPUNIT_TEST_SUITE_REGISTRATION( PicrossDocumentTest );
 
 //========================================================================
 //
 //    Tests.
 //
 
-void  SampleDocumentTest::testCtor()
+void  PicrossDocumentTest::testCtor()
 {
-    SampleDocument  testee;
+    PicrossDocument testee;
 
     return;
 }
 
-void  SampleDocumentTest::testCountAlphabet1()
+void  PicrossDocumentTest::testCountAlphabet1()
 {
-    SampleDocument  testee;
+    PicrossDocument testee;
 
     testee.setMessage("abcXYZ123");
     CPPUNIT_ASSERT_EQUAL( 6, testee.countAlphabet() );
@@ -83,9 +83,9 @@ void  SampleDocumentTest::testCountAlphabet1()
     return;
 }
 
-void  SampleDocumentTest::testCountAlphabet2()
+void  PicrossDocumentTest::testCountAlphabet2()
 {
-    SampleDocument  testee;
+    PicrossDocument testee;
 
     testee.setMessage("");
     CPPUNIT_ASSERT_EQUAL( 0, testee.countAlphabet() );
@@ -94,9 +94,9 @@ void  SampleDocumentTest::testCountAlphabet2()
 }
 
 
-void  SampleDocumentTest::testCountAlphabet3()
+void  PicrossDocumentTest::testCountAlphabet3()
 {
-    SampleDocument  testee;
+    PicrossDocument testee;
 
     CPPUNIT_ASSERT_EQUAL( 0, testee.countAlphabet() );
 
@@ -104,7 +104,7 @@ void  SampleDocumentTest::testCountAlphabet3()
 }
 
 }   //  End of namespace  Common
-SAMPLE_NAMESPACE_END
+PICROSS_NAMESPACE_END
 
 //========================================================================
 //

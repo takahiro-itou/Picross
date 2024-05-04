@@ -22,7 +22,7 @@ EXTRA_NOINST_DATA_FILES     =
 EXTRA_NOINST_HEADER_FILES   =
 
 LIBRARY_SOURCE_FILES        =  \
-        SampleDocument.cpp             \
+        PicrossDocument.cpp            \
         ${EXTRA_LIBRARY_SOURCE_FILES}
 
 LIBRARY_INSTANTIATIONS      =

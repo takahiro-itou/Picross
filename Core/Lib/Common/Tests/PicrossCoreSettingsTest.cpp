@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2022, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -13,27 +13,27 @@
 *************************************************************************/
 
 /**
-**      An Implementation of Test Case 'SampleCoreSettings'.
+**      An Implementation of Test Case 'PicrossCoreSettings'.
 **
-**      @file       Common/Tests/SampleCoreSettingsTest.cpp
+**      @file       Common/Tests/PicrossCoreSettingsTest.cpp
 **/
 
 #include    "TestDriver.h"
 #include    "Picross/Common/PicrossSettings.h"
 
-SAMPLE_NAMESPACE_BEGIN
+PICROSS_NAMESPACE_BEGIN
 
 //========================================================================
 //
-//    SampleCoreSettingsTest  class.
+//    PicrossCoreSettingsTest  class.
 //
 /**
-**    クラス SampleCoreSettings の単体テスト。
+**    クラス PicrossCoreSettings の単体テスト。
 **/
 
-class  SampleCoreSettingsTest : public  TestFixture
+class  PicrossCoreSettingsTest : public  TestFixture
 {
-    CPPUNIT_TEST_SUITE(SampleCoreSettingsTest);
+    CPPUNIT_TEST_SUITE(PicrossCoreSettingsTest);
     CPPUNIT_TEST(testNameSpace);
     CPPUNIT_TEST_SUITE_END();
 
@@ -45,19 +45,19 @@ private:
     void  testNameSpace();
 };
 
-CPPUNIT_TEST_SUITE_REGISTRATION( SampleCoreSettingsTest );
+CPPUNIT_TEST_SUITE_REGISTRATION( PicrossCoreSettingsTest );
 
 //========================================================================
 //
 //    Tests.
 //
 
-void  SampleCoreSettingsTest::testNameSpace()
+void  PicrossCoreSettingsTest::testNameSpace()
 {
     return;
 }
 
-SAMPLE_NAMESPACE_END
+PICROSS_NAMESPACE_END
 
 //========================================================================
 //
