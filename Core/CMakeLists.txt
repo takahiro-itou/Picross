@@ -15,7 +15,7 @@ cmake_minimum_required(VERSION  3.0.2)
 ##    パッケージの情報を指定する。
 ##
 
-set(PROJECT_NAME        Sample)
+set(PROJECT_NAME        Picross)
 set(serial              "0.0.0")
 
 project(${PROJECT_NAME}     VERSION  1.0.0)
@@ -80,7 +80,7 @@ Include (${COMMON_CMAKE_DIR}/CheckOverride.cmake)
 ##    Project Name Space.
 ##
 
-set(SAMPLE_CNF_NAMESPACE    Sample)
+set(PICROSS_CNF_NAMESPACE   Picross)
 
 ##----------------------------------------------------------------
 ##
@@ -108,8 +108,8 @@ Find_Package (CppUnit)
 ##
 
 configure_file(
-    "${INCLUDE_SOURCE_DIR}/.Config/ConfiguredSample.h.in"
-    "${INCLUDE_BINARY_DIR}/.Config/ConfiguredSample.h"
+    "${INCLUDE_SOURCE_DIR}/.Config/ConfiguredPicross.h.in"
+    "${INCLUDE_BINARY_DIR}/.Config/ConfiguredPicross.h"
 )
 
 configure_file(

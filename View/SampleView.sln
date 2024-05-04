@@ -14,8 +14,6 @@ EndProject
 
 Project("{778DAE3C-4631-46EA-AA77-85C1314464D9}") = "ViewVb", "ViewVb\ViewVb.vbproj", "{3446924D-6058-4767-B215-8FDBAEF1756C}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewCs", "ViewCs\ViewCs.csproj", "{4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}"
-EndProject
 
 Global
     GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -79,19 +77,6 @@ Global
         {3446924D-6058-4767-B215-8FDBAEF1756C}.Release|x64.Build.0 = Release|x64
         {3446924D-6058-4767-B215-8FDBAEF1756C}.Release|x86.ActiveCfg = Release|Win32
         {3446924D-6058-4767-B215-8FDBAEF1756C}.Release|x86.Build.0 = Release|Win32
-
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Debug|Any CPU.ActiveCfg = Debug|x64
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Debug|Any CPU.Build.0 = Debug|x64
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Debug|x64.ActiveCfg = Debug|x64
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Debug|x64.Build.0 = Debug|x64
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Debug|x86.ActiveCfg = Debug|Win32
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Debug|x86.Build.0 = Debug|Win32
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Release|Any CPU.ActiveCfg = Release|x64
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Release|Any CPU.Build.0 = Release|x64
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Release|x64.ActiveCfg = Release|x64
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Release|x64.Build.0 = Release|x64
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Release|x86.ActiveCfg = Release|Win32
-        {4486E20D-9A2C-4F4A-9B63-B5CC3F32DBDC}.Release|x86.Build.0 = Release|Win32
 
     EndGlobalSection
 

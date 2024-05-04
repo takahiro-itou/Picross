@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2021, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -15,21 +15,21 @@
 /**
 **      プロジェクトの設定。
 **
-**      @file       Common/SampleSettings.h
+**      @file       Common/PicrossSettings.h
 **/
 
-#if !defined( SAMPLE_CONFIG_INCLUDED_SAMPLE_SETTINGS_H )
-#    define   SAMPLE_CONFIG_INCLUDED_SAMPLE_SETTINGS_H
+#if !defined( PICROSS_CONFIG_INCLUDED_PICROSS_SETTINGS_H )
+#    define   PICROSS_CONFIG_INCLUDED_PICROSS_SETTINGS_H
 
 //  スクリプトによる設定値が書き込まれたヘッダを読み込む。  //
-#if defined( SAMPLE_USE_PRE_CONFIGURED_MSVC )
-#    include    "Sample/.Config/PreConfigSample.msvc.h"
+#if defined( PICROSS_USE_PRE_CONFIGURED_MSVC )
+#    include    "Picross/.Config/PreConfigPicross.msvc.h"
 #else
-#    include    "Sample/.Config/ConfiguredSample.h"
+#    include    "Picross/.Config/ConfiguredPicross.h"
 #endif
 
-SAMPLE_NAMESPACE_BEGIN
+PICROSS_NAMESPACE_BEGIN
 
-SAMPLE_NAMESPACE_END
+PICROSS_NAMESPACE_END
 
 #endif

@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2024, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -18,15 +18,15 @@
 **      @file       Bin/ViewSample.cpp
 **/
 
-#include    "Sample/Common/SampleDocument.h"
+#include    "Picross/Common/PicrossDocument.h"
 
 #include    <iostream>
 
-using   namespace   SAMPLE_NAMESPACE;
+using   namespace   PICROSS_NAMESPACE;
 
 int  main(int argc, char * argv[])
 {
-    Sample::Common::SampleDocument  doc;
+    Common::PicrossDocument doc;
 
     std::string text("Hello, World!");
 

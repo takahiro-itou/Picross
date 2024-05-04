@@ -8,7 +8,7 @@
 
 #include <string>
 
-namespace  SampleWrapper  {
+namespace  PicrossWrapper  {
 namespace  Common  {
 
 //----------------------------------------------------------------
@@ -16,7 +16,7 @@ namespace  Common  {
 //  （デフォルトコンストラクタ）。
 //
 
-SampleDocument::SampleDocument()
+PicrossDocument::PicrossDocument()
     : m_ptrObj { new WrapTarget() }
 {
 }
@@ -26,9 +26,9 @@ SampleDocument::SampleDocument()
 //  （デストラクタ）。
 //
 
-SampleDocument::~SampleDocument()
+PicrossDocument::~PicrossDocument()
 {
-    this->!SampleDocument();
+    this->!PicrossDocument();
 }
 
 //----------------------------------------------------------------
@@ -36,7 +36,7 @@ SampleDocument::~SampleDocument()
 //  （ファイナライザ）。
 //
 
-SampleDocument::!SampleDocument()
+PicrossDocument::!PicrossDocument()
 {
     if ( this->m_ptrObj ) {
         delete  this->m_ptrObj;
@@ -49,7 +49,7 @@ SampleDocument::!SampleDocument()
 //
 
 int
-SampleDocument::countAlphabet()
+PicrossDocument::countAlphabet()
 {
     return ( this->m_ptrObj->countAlphabet() );
 }
@@ -59,7 +59,7 @@ SampleDocument::countAlphabet()
 //
 
 void
-SampleDocument::setMessage(
+PicrossDocument::setMessage(
         System::String^ message)
 {
     std::string tmp = msclr::interop::marshal_as<std::string>(message);
@@ -67,4 +67,4 @@ SampleDocument::setMessage(
 }
 
 }   //  End of namespace  Common
-}   //  End of namespace  SampleWrapper
+}   //  End of namespace  PicrossWrapper

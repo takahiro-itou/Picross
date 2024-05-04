@@ -2,19 +2,19 @@
 
 #pragma once
 
-#include    "Sample/Common/SampleDocument.h"
+#include    "Picross/Common/PicrossDocument.h"
 
 using namespace System;
 
-namespace  SampleWrapper  {
+namespace  PicrossWrapper  {
 namespace  Common  {
 
 //========================================================================
 //
-//    SampleDocument  class.
+//    PicrossDocument  class.
 //
 
-public ref  class  SampleDocument
+public ref  class  PicrossDocument
 {
 
 //========================================================================
@@ -33,21 +33,21 @@ public:
     **  （デフォルトコンストラクタ）。
     **
     **/
-    SampleDocument();
+    PicrossDocument();
 
     //----------------------------------------------------------------
     /**   インスタンスを破棄する
     **  （デストラクタ）。
     **
     **/
-    virtual  ~SampleDocument();
+    virtual  ~PicrossDocument();
 
     //----------------------------------------------------------------
     /**   インスタンスを破棄する
     **  （ファイナライザ）。
     **
     **/
-    !SampleDocument();
+    !PicrossDocument();
 
 //========================================================================
 //
@@ -116,10 +116,10 @@ public:
 //
 private:
 
-    typedef     Sample::Common::SampleDocument  WrapTarget;
+    typedef     Picross::Common::PicrossDocument    WrapTarget;
 
     WrapTarget  *   m_ptrObj;
 };
 
 }   //  End of namespace  Common
-}   //  End of namespace  SampleWrapper
+}   //  End of namespace  PicrossWrapper

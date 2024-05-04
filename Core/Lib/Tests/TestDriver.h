@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2022, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -18,8 +18,8 @@
 **      @file       Tests/TestDriver.h
 **/
 
-#if !defined( SAMPLE_CONFIG_INCLUDED_TEST_DRIVER_H )
-#    define   SAMPLE_CONFIG_INCLUDED_TEST_DRIVER_H
+#if !defined( PICROSS_CONFIG_INCLUDED_TEST_DRIVER_H )
+#    define   PICROSS_CONFIG_INCLUDED_TEST_DRIVER_H
 
 //----------------------------------------------------------------
 /**   単体テストを起動するエントリポイント。

@@ -1,9 +1,9 @@
 ﻿//  -*-  coding: utf-8-with-signature;  mode: c++  -*-  //
 /*************************************************************************
 **                                                                      **
-**                  ---  DocView Template Project  ---                  **
+**                  ---  Picross Solver  Core Lib  ---                  **
 **                                                                      **
-**          Copyright (C), 2017-2022, Takahiro Itou                     **
+**          Copyright (C), 2024 Takahiro Itou                           **
 **          All Rights Reserved.                                        **
 **                                                                      **
 **          License: (See COPYING or LICENSE files)                     **
@@ -13,15 +13,15 @@
 *************************************************************************/
 
 /**
-**      An Implementation of SampleDocument class.
+**      An Implementation of PicrossDocument class.
 **
-**      @file       Common/SampleDocument.cpp
+**      @file       Common/PicrossDocument.cpp
 **/
 
-#include    "Sample/Common/SampleDocument.h"
+#include    "Picross/Common/PicrossDocument.h"
 
 
-SAMPLE_NAMESPACE_BEGIN
+PICROSS_NAMESPACE_BEGIN
 namespace  Common  {
 
 namespace  {
@@ -31,7 +31,7 @@ namespace  {
 
 //========================================================================
 //
-//    SampleDocument  class.
+//    PicrossDocument  class.
 //
 
 //========================================================================
@@ -43,7 +43,7 @@ namespace  {
 //    インスタンスを初期化する
 //  （デフォルトコンストラクタ）。
 
-SampleDocument::SampleDocument()
+PicrossDocument::PicrossDocument()
     : m_message()
 {
 }
@@ -53,7 +53,7 @@ SampleDocument::SampleDocument()
 //  （デストラクタ）。
 //
 
-SampleDocument::~SampleDocument()
+PicrossDocument::~PicrossDocument()
 {
 }
 
@@ -82,7 +82,7 @@ SampleDocument::~SampleDocument()
 //
 
 int
-SampleDocument::countAlphabet()  const
+PicrossDocument::countAlphabet()  const
 {
     const   size_t  len = this->m_message.length();
     size_t  cnt = 0;
@@ -112,7 +112,7 @@ SampleDocument::countAlphabet()  const
 //    メッセージを設定する。
 
 void
-SampleDocument::setMessage(
+PicrossDocument::setMessage(
         const  std::string  &message)
 {
     this->m_message = message;
@@ -129,4 +129,4 @@ SampleDocument::setMessage(
 //
 
 }   //  End of namespace  Common
-SAMPLE_NAMESPACE_END
+PICROSS_NAMESPACE_END

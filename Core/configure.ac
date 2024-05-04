@@ -39,7 +39,7 @@ dnl   プロジェクトの基本設定。
 dnl
 
 AC_CONFIG_SRCDIR([Makefile.am])
-AC_LANG_CPLUSPLUS
+AC_LANG([C++])
 
 dnl
 dnl   デフォルトのコンパイルオプション
@@ -74,8 +74,8 @@ dnl
 dnl   Project Name Space.
 dnl
 
-SAMPLE_CNF_NAMESPACE=Sample
-AC_SUBST(SAMPLE_CNF_NAMESPACE)
+PICROSS_CNF_NAMESPACE=Picross
+AC_SUBST(PICROSS_CNF_NAMESPACE)
 
 dnl----------------------------------------------------------------
 dnl
@@ -87,7 +87,7 @@ m4_include([.M4/ConfigDirectory.m4])
 MYAC_CUSTOMIZE_LIBRARY_DIR([Lib])
 MYAC_CUSTOMIZE_BINARY_DIR([Bin])
 MYAC_CUSTOMIZE_INCLUDE_DIR(
-    [Include], [Sample], [.Config], [Config.h])
+    [Include], [Picross], [.Config], [Config.h])
 
 dnl----------------------------------------------------------------
 dnl
@@ -157,6 +157,7 @@ dnl
 
 AC_CONFIG_FILES([
     .CMake/Makefile
+    .CMake/Modules/Makefile
     .M4/Makefile
     Makefile
     Bin/Makefile
@@ -166,7 +167,7 @@ AC_CONFIG_FILES([
 ])
 
 AC_CONFIG_FILES([
-    Include/Sample/.Config/ConfiguredSample.h
+    Include/Picross/.Config/ConfiguredPicross.h
 ])
 
 dnl
