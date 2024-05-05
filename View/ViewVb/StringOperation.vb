@@ -35,7 +35,19 @@ Public Function DeleteFileExt(ByVal strFileName As String) As String
 'ファイル名から、拡張子のみを除いた部分を取得する
 '返される結果には、パス名が含まれる
 '--------------------------------------------------------------------
+Dim i As Long
 
+    i = Len(strFileName)
+    For i = Len(strFileName) To 1 Step -1
+        If Mid$(strFileName, i, 1) = "." Then
+            'この "." の前までを取り出す
+            DeleteFileExt = Left$(strFileName, i - 1)
+            Exit Function
+        End If
+    Next i
+
+    '"." が見つからないので、このファイル名には拡張子がない
+    DeleteFileExt = strFileName
 End Function
 
 Public Function DeleteFilePath(ByVal strFileName As String) As String
