@@ -146,7 +146,10 @@ Public Function ReplaceSpaceChar(ByVal strText As String, Optional ByVal strChar
 
 End Function
 
-Public Function ReplaceValueToConstantName(ByVal strText, ByVal strConstValue As String, ByVal strConstName As String, ByVal blnCheckCase As Boolean) As String
+Public Function ReplaceValueToConstantName(
+        ByVal strText As String, ByVal strConstValue As String, _
+        ByVal strConstName As String, _
+        ByVal blnCheckCase As Boolean) As String
 '------------------------------------------------------------------------------
 '文字列中の特定の文字列を、定数名で置き換える
 'CheckCaseがTrueならば、大文字と小文字を異なるものとして扱う
