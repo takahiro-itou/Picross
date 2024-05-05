@@ -1,0 +1,3 @@
+﻿Module String
+
+End Module
