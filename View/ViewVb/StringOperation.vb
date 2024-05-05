@@ -98,7 +98,8 @@ Public Function HexToSingle(ByVal strHex As String) As Single
 
 End Function
 
-Public Function MakeHex(ByVal X As Long, ByVal nLen As Long, Optional ByVal chDigit = " ") As String
+Public Function MakeHex(ByVal X As Long, ByVal nLen As Long, _
+        Optional ByVal chDigit As String = " ") As String
 '--------------------------------------------------------------------
 'Xを16進数に変換し、余った桁はchDigitで埋めてnLen文字分にする
 '--------------------------------------------------------------------
