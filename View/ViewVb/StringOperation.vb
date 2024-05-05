@@ -48,7 +48,7 @@ Dim lngSize As Long
     lngSize = UBound(lpTemp) - lngTempStart + 1
 
     If blnAllocBuffer Then
-        ReDim Preserve lpBuf(lngStart To lngEnd)
+        ReDim Preserve lpBuf(lngEnd)
     End If
 
     If (lngEnd - lngStart + 1) < lngSize Then
