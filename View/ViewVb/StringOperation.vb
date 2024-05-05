@@ -30,4 +30,33 @@ Dim strText As String
     ByteToString = strText
 End Function
 
+Public Sub StringToByte(ByVal strText As String, _
+        ByRef lpBuf() As Byte, ByVal lngStart, ByVal lngEnd As Long, _
+        Optional ByVal blnAllocBuffer As Boolean = False)
+'--------------------------------------------------------------------
+'文字列をバイト列に変換する
+'余ったバイトは、0で埋められる
+'--------------------------------------------------------------------
+Dim i As Long
+Dim lpTemp() As Byte
+Dim lngTempStart As Long
+Dim lngSize As Long
+
+    lpTemp() = StrConv(strText, vbFromUnicode)
+    lngTempStart = LBound(lpTemp)
+    lngSize = UBound(lpTemp) - lngTempStart + 1
+
+    If blnAllocBuffer Then
+        ReDim Preserve lpBuf(lngStart To lngEnd)
+    End If
+
+    If (lngEnd - lngStart + 1) < lngSize Then
+        lngSize = lngEnd - lngStart + 1
+    End If
+
+    For i = 0 To lngSize - 1
+        lpBuf(lngStart + i) = lpTemp(i)
+    Next i
+End Sub
+
 End Module
