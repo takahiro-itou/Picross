@@ -43,7 +43,7 @@ Dim lpTemp() As Byte
 Dim lngTempStart As Long
 Dim lngSize As Long
 
-    lpTemp() = StrConv(strText, vbFromUnicode)
+    lpTemp = System.Text.Encoding.GetEncoding("utf8").GetBytes(strText)
     lngTempStart = LBound(lpTemp)
     lngSize = UBound(lpTemp) - lngTempStart + 1
 
