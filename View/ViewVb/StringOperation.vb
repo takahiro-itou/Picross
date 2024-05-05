@@ -64,6 +64,6 @@ Dim lngSize As Long
     Next i
 
     StringToByte = lngSize
-End Sub
+End Function
 
 End Module
