@@ -31,7 +31,8 @@ Dim strText As String
 End Function
 
 Public Sub StringToByte(ByVal strText As String, _
-        ByRef lpBuf() As Byte, ByVal lngStart, ByVal lngEnd As Long, _
+        ByRef lpBuf() As Byte,
+        ByVal lngStart As Long, ByVal lngEnd As Long, _
         Optional ByVal blnAllocBuffer As Boolean = False)
 '--------------------------------------------------------------------
 '文字列をバイト列に変換する
