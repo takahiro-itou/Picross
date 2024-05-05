@@ -1,8 +1,8 @@
 ﻿Module StringOperation
 
 Public Function ByteToString(ByRef lpBuffer() As Byte, _
-    ByVal lngStart As Long, ByVal lngEnd As Long, _
-    Optional ByVal blnNullTerm As Boolean = True) As String
+        ByVal lngStart As Long, ByVal lngEnd As Long, _
+        Optional ByVal blnNullTerm As Boolean = True) As String
 '--------------------------------------------------------------------
 'バイト列を文字列に変換する
 'lngStartから、lngEnd までの範囲を(システムで使用している文字コードで)
@@ -30,10 +30,10 @@ Dim strText As String
     ByteToString = strText
 End Function
 
-Public Sub StringToByte(ByVal strText As String, _
+Public Function StringToByte(ByVal strText As String, _
         ByRef lpBuf() As Byte,
         ByVal lngStart As Long, ByVal lngEnd As Long, _
-        Optional ByVal blnAllocBuffer As Boolean = False)
+        Optional ByVal blnAllocBuffer As Boolean = False) As Long
 '--------------------------------------------------------------------
 '文字列をバイト列に変換する
 '余ったバイトは、0で埋められる
@@ -55,9 +55,15 @@ Dim lngSize As Long
         lngSize = lngEnd - lngStart + 1
     End If
 
+    For i = lngStart To lngEnd
+        lpBuf(i) = 0
+    Next i
+
     For i = 0 To lngSize - 1
         lpBuf(lngStart + i) = lpTemp(i)
     Next i
+
+    StringToByte = lngSize
 End Sub
 
 End Module
