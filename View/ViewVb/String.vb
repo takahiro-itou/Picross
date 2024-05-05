@@ -1,3 +1,3 @@
-﻿Module String
+﻿Module StringOperation
 
 End Module
