@@ -198,6 +198,13 @@ Public Function HexToLong(ByVal strHex As String) As Long
 '文字列として書かれた16進数を整数に変換する
 '--------------------------------------------------------------------
 
+    If (Left$(strHex, 2) <> "&H") Or (Left$(strHex, 2) <> "0x") Then
+        strHex = "&H" & strHex & "&"
+    ElseIf (Left$(strHex, 2) = "0x") Then
+        strHex = "&H" & Mid$(strHex, 3) & "&"
+    End If
+
+    HexToLong = CLng(Val(strHex))
 End Function
 
 Public Function HexToSingle(ByVal strHex As String) As Single
