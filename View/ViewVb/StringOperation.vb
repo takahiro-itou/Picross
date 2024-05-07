@@ -124,11 +124,41 @@ Dim strTemp As String
     GetFileTitle = DeleteFileExt(strTemp)
 End Function
 
-Public Function GetFullPathName(ByVal strPathName As String, ByVal strFileName As String) As String
+Public Function GetFullPathName(ByVal strPathName As String, _
+        ByVal strFileName As String) As String
 '--------------------------------------------------------------------
 'strPathNameを基準とした、相対パスから、フルパスを取得する
 '--------------------------------------------------------------------
+Dim i As Long
+Dim lngPos As Long
+Dim strTemp As String
+Dim strLeft As String
 
+    strTemp = strPathName
+
+    Do While Len(strFileName) > 0
+        DoEvents
+        lngPos = InStr(strFileName, "\")
+        If (lngPos = 0) Then
+            'ディレクトリ指定がもうないので、ファイル名を最後にくっつける
+            strTemp = strTemp & "\" & strFileName
+            strFileName = ""
+        Else
+            strLeft = Left$(strFileName, lngPos)
+            strFileName = Mid$(strFileName, lngPos + 1)
+            If (strLeft = ".\") Then
+                '現在のディレクトリ
+            ElseIf (strLeft = "..\") Then
+               '親ディレクトリに移動
+                strTemp = DeleteFilePath(strTemp)
+            Else
+                '指定されたディレクトリに移動
+                strTemp = strTemp & "\" & strLeft
+            End If
+        End If
+    Loop
+
+    GetFullPathName = strTemp
 End Function
 
 Public Function GetRelativePath(ByVal strFileName As String, ByVal strPathName As String) As String
