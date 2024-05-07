@@ -140,7 +140,7 @@ Dim strLeft As String
         Application.DoEvents()
         lngPos = InStr(strFileName, "\")
         If (lngPos = 0) Then
-            'ディレクトリ指定がもうないので、ファイル名を最後にくっつける
+            ' ディレクトリ指定がもうないので、ファイル名を最後にくっつける
             strTemp = strTemp & "\" & strFileName
             strFileName = ""
         Else
@@ -161,11 +161,36 @@ Dim strLeft As String
     GetFullPathName = strTemp
 End Function
 
-Public Function GetRelativePath(ByVal strFileName As String, ByVal strPathName As String) As String
+Public Function GetRelativePath(ByVal strFileName As String, _
+        ByVal strPathName As String) As String
 '--------------------------------------------------------------------
 'フルパスから、strPathNameを基準とした、相対パスを取得する
 '--------------------------------------------------------------------
+Dim lngPos As Long
+Dim strTemp As String
+Dim strPathTemp As String
+Dim strNameTemp As String
 
+    If strPathName = "" Then
+        GetRelativePath = strFileName
+    End If
+
+    strTemp = ""
+
+    lngPos = 0
+    Do While lngPos = 0
+        strPathTemp = LCase$(strPathName)
+        strNameTemp = LCase$(strFileName)
+        lngPos = InStr(strNameTemp, strPathTemp)
+        If lngPos = 0 Then
+            strPathName = DeleteFilePath(strPathName)
+            strTemp = strTemp & "..\"
+        Else
+            strTemp = strTemp & Mid$(strFileName, Len(strPathName) + 2)
+        End If
+    Loop
+
+    GetRelativePath = strTemp
 End Function
 
 Public Function HexToLong(ByVal strHex As String) As Long
