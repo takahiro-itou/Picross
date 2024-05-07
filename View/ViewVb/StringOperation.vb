@@ -257,7 +257,7 @@ Public Function MakeHex(ByVal X As Long, ByVal nLen As Long, _
 '--------------------------------------------------------------------
 'Xを16進数に変換し、余った桁はchDigitで埋めてnLen文字分にする
 '--------------------------------------------------------------------
-
+    MakeHex = Right$(String$(nLen, chDigit) & Hex$(X), nLen)
 End Function
 
 Public Function ParseString(ByRef lpszText As String, ByVal strSep As String) As String
