@@ -95,7 +95,19 @@ Public Function GetFilePath(ByVal strFileName As String) As String
 'ファイルのパスを取得する
 'このパス名には、最後の \ を含まない
 '--------------------------------------------------------------------
+Dim i As Long
 
+    i = Len(strFileName)
+    For i = Len(strFileName) To 1 Step -1
+        If Mid$(strFileName, i, 1) = "\" Then
+            ' この "\"  の前までを取り出す
+            GetFilePath = Left$(strFileName, i - 1)
+            Exit Function
+        End If
+    Next i
+
+    ' \ が見つからないので、このファイル名はパスを含んでいない
+    GetFilePath = ""
 End Function
 
 Public Function GetFileTitle(ByVal strFileName As String) As String
