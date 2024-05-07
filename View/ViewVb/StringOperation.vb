@@ -253,7 +253,7 @@ Dim lngBase As Long
 End Function
 
 Public Function MakeHex(ByVal X As Long, ByVal nLen As Long, _
-        Optional ByVal chDigit As String = " ") As String
+        Optional ByVal chDigit As Char = " "c) As String
 '--------------------------------------------------------------------
 'Xを16進数に変換し、余った桁はchDigitで埋めてnLen文字分にする
 '--------------------------------------------------------------------
