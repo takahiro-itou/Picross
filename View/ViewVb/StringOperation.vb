@@ -75,7 +75,19 @@ Public Function GetFileExt(ByVal strFileName As String) As String
 'ファイルの拡張子を取得する
 'この拡張子には、先頭の "." を含まない
 '--------------------------------------------------------------------
+Dim i As Long
 
+    i = Len(strFileName)
+    For i = Len(strFileName) To 1 Step -1
+        If Mid$(strFileName, i, 1) = "." Then
+            'この "." の後ろを取り出す
+            GetFileExt = Mid$(strFileName, i + 1)
+            Exit Function
+        End If
+    Next i
+
+    '. が見つからないので、このファイル名には拡張子がない
+    GetFileExt = ""
 End Function
 
 Public Function GetFilePath(ByVal strFileName As String) As String
