@@ -137,7 +137,7 @@ Dim strLeft As String
     strTemp = strPathName
 
     Do While Len(strFileName) > 0
-        DoEvents
+        Application.DoEvents()
         lngPos = InStr(strFileName, "\")
         If (lngPos = 0) Then
             'ディレクトリ指定がもうないので、ファイル名を最後にくっつける
