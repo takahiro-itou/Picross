@@ -115,7 +115,13 @@ Public Function GetFileTitle(ByVal strFileName As String) As String
 'ファイルのタイトル、つまりファイル名から
 'パスと拡張子を除いた残りの部分を取得する
 '--------------------------------------------------------------------
+Dim strTemp As String
 
+    'ファイル名からパス名を除く
+    strTemp = DeleteFilePath(strFileName)
+
+    'さらに拡張子も除く
+    GetFileTitle = DeleteFileExt(strTemp)
 End Function
 
 Public Function GetFullPathName(ByVal strPathName As String, ByVal strFileName As String) As String
