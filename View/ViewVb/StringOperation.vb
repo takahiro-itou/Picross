@@ -211,7 +211,45 @@ Public Function HexToSingle(ByVal strHex As String) As Single
 '--------------------------------------------------------------------
 '文字列として書かれた16進数を単精度浮動小数点(Single)に変換する
 '--------------------------------------------------------------------
+Dim lngSgn As Long      '符号(Bit 0)
+Dim lngExp As Long      '指数(Bit 1-8)
+Dim sngMan As Single    '仮数(Bit 9-31)
+Dim i As Long
+Dim lngTemp As Long
+Dim lngBase As Long
 
+    If (Left$(strHex, 2) = "&H") Or (Left$(strHex, 2) = "0x") Then
+        strHex = Mid$(strHex, 3)
+    End If
+    If (Right$(strHex, 1) = "&") Then
+        strHex = Left$(strHex, Len(strHex) - 1)
+    End If
+
+    '不足している桁があれば、後ろに補う
+    strHex = Left$(strHex & "00000000", 8)
+
+    '各パートに変換する
+    lngTemp = Val(strHex)
+    If (lngTemp And &H80000000) Then
+        lngSgn = -1
+    Else
+        lngSgn = 1
+    End If
+
+    lngExp = lngTemp \ &H800000
+
+    lngBase = 1
+    sngMan = 0
+    For i = 0 To 22
+        If (lngTemp And lngBase) Then
+            sngMan = sngMan + 1
+        End If
+        sngMan = sngMan / 2
+        lngBase = lngBase * 2
+    Next i
+    sngMan = sngMan + 1
+
+    HexToSingle = lngSgn * (sngMan * 2 ^ (lngExp))
 End Function
 
 Public Function MakeHex(ByVal X As Long, ByVal nLen As Long, _
