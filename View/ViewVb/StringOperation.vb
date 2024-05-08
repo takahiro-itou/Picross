@@ -262,13 +262,29 @@ Dim repeatedString As New String(chDigit, nLen)
     MakeHex = Right$(repeatedString & Hex$(X), nLen)
 End Function
 
-Public Function ParseString(ByRef lpszText As String, ByVal strSep As String) As String
+Public Function ParseString(ByRef lpszText As String, _
+        ByVal strSep As String) As String
 '--------------------------------------------------------------------
 '文字列を解析する
 'lpszTextを先頭から走査し、strSepで区切る。
 'strSepの手前までを返し、lpszTextをstrSep以降から始まるように調整する
 '--------------------------------------------------------------------
+Dim lngPos As Long
 
+    lngPos = InStr(lpszText, strSep)
+    If lngPos = 0 Then
+        '区切り記号 strSep が見つからない
+        ParseString = lpszText
+        lpszText = ""
+    ElseIf lngPos = 1 Then
+        '先頭に区切り記号 strSep がある
+        ParseString = ""
+        lpszText = Mid$(lpszText, Len(strSep) + 1)
+    Else
+        '区切り記号 strSep の前後に分解する
+        ParseString = Left$(lpszText, lngPos - 1)
+        lpszText = Mid$(lpszText, lngPos + Len(strSep))
+    End If
 End Function
 
 Public Sub Pause(ByVal sngSeconds As Single)
