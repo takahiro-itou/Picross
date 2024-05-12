@@ -299,7 +299,15 @@ Public Function ProcessEscapeSequence(ByVal strText As String) As String
 '--------------------------------------------------------------------
 '文字列中のエスケープシーケンスを処理する
 '--------------------------------------------------------------------
+Dim strEscape(0 To 3) As String
+Dim strChar(0 To 3) As String
 
+    strEscape(0) = "\0": strChar(0) = vbNullChar
+    strEscape(1) = "\r": strChar(1) = vbCr
+    strEscape(2) = "\n": strChar(2) = vbLf
+    strEscape(3) = "\t": strChar(3) = vbTab
+
+    ProcessEscapeSequence = ReplaceConstant(strText, strEscape(), strChar())
 End Function
 
 Public Function ReplaceConstant(ByVal strText As String, ByRef strConstName() As String, ByRef ConstValue() As String) As String
