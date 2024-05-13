@@ -396,7 +396,29 @@ Public Function ReplaceValueToConstantName(
 '文字列中の特定の文字列を、定数名で置き換える
 'CheckCaseがTrueならば、大文字と小文字を異なるものとして扱う
 '------------------------------------------------------------------------------
+Dim lngPos As Long
+Dim strValue As String
+Dim strTemp As String
 
+    If blnCheckCase Then
+        strTemp = strText
+        strValue = strConstValue
+    Else
+        strTemp = UCase$(strText)
+        strValue = UCase$(strConstValue)
+    End If
+
+    Do
+        '文字列中から、定数名で置き換わる値を検索する
+        lngPos = InStr(strTemp, strValue)
+        If lngPos > 1 Then
+            strTemp = Left$(strTemp, lngPos - 1) & strConstName & Mid$(strTemp, lngPos + Len(strValue))
+        ElseIf lngPos = 1 Then
+            strTemp = strConstName & Mid$(strTemp, 1 + Len(strValue))
+        End If
+    Loop Until lngPos = 0
+
+    ReplaceValueToConstantName = strTemp
 End Function
 
 Public Function SetDefaultText(ByVal strDefaultFile As String) As String
