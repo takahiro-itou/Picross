@@ -355,7 +355,37 @@ Public Function ReplaceSpaceChar(ByVal strText As String, Optional ByVal strChar
 '指定された文字列に置き換える。デフォルトでは半角スペースに置き換える
 'blnWideSpaceがTrueならば、全角スペースも対象にする
 '--------------------------------------------------------------------
+Dim i As Long, L As Long
+Dim blnFlag As Boolean
+Dim strTemp As String
+Dim strHead As String
 
+    blnFlag = False
+    strTemp = ""
+    L = Len(strText)
+    For i = 1 To L
+        strHead = Mid$(strText, i, 1)
+        If (strHead = " ") Or (strHead = vbTab) Then
+            If blnFlag = False Then
+                '指定された文字列に置き換える
+                strTemp = strTemp & strChar
+            End If
+            blnFlag = True
+        ElseIf (blnWideSpace = True) And (strHead = "　") Then
+            '全角スペースも対象にする
+            If blnFlag = False Then
+                '指定された文字列に置き換える
+                strTemp = strTemp & strChar
+            End If
+            blnFlag = True
+        Else
+            '空白以外の文字は、そのまま転送する
+            strTemp = strTemp & strHead
+            blnFlag = False
+        End If
+    Next i
+
+    ReplaceSpaceChar = strTemp
 End Function
 
 Public Function ReplaceValueToConstantName(
