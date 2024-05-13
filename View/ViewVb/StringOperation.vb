@@ -314,7 +314,39 @@ Public Function ReplaceConstant(ByVal strText As String, ByRef strConstName() As
 '--------------------------------------------------------------------
 '文字列中の定数名に値を代入して返す
 '--------------------------------------------------------------------
+Dim i As Long
+Dim lngPos As Long
+Dim strTemp As String
+Dim strName As String
+Dim strValue As String
 
+    strTemp = strText
+    For i = LBound(strConstName) To UBound(strConstName)
+        '定数名と値
+        strName = strConstName(i)
+
+        If i > UBound(ConstValue) Then
+            strValue = ""
+        ElseIf IsNumeric(ConstValue(i)) Then
+            strValue = Trim$(Str$(ConstValue(i)))
+        Else
+            strValue = ConstValue(i)
+        End If
+
+        'すべて置換する
+        Do While True
+            lngPos = InStr(strTemp, strName)
+            If (lngPos = 0) Or (Len(strTemp) = 0) Or (strValue = "") Then Exit Do
+            If (lngPos = 1) Then
+                strTemp = strValue & Mid$(strTemp, 1 + Len(strName))
+            Else
+                strTemp = Left$(strTemp, lngPos - 1) & strValue & Mid$(strTemp, lngPos + Len(strName))
+            End If
+        Loop
+    Next i
+
+    '置換した文字列を返す
+    ReplaceConstant = strTemp
 End Function
 
 Public Function ReplaceSpaceChar(ByVal strText As String, Optional ByVal strChar As String = " ", Optional ByVal blnWideSpace As Boolean = False) As String
