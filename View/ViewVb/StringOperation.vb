@@ -292,7 +292,15 @@ Public Sub Pause(ByVal sngSeconds As Single)
 '指定した時間だけ待機する
 'メッセージは処理する
 '--------------------------------------------------------------------
+Dim sngStartTime As Single
+Dim sngEndTime As Single
 
+    sngStartTime = Timer
+    sngEndTime = sngStartTime + sngSeconds
+    Do While (sngEndTime >= Timer)
+        If (Timer < sngStartTime) Then Exit Do
+        DoEvents
+    Loop
 End Sub
 
 Public Function ProcessEscapeSequence(ByVal strText As String) As String
