@@ -299,7 +299,7 @@ Dim sngEndTime As Single
     sngEndTime = sngStartTime + sngSeconds
     Do While (sngEndTime >= Timer)
         If (Timer < sngStartTime) Then Exit Do
-        DoEvents
+        Application.DoEvents()
     Loop
 End Sub
 
