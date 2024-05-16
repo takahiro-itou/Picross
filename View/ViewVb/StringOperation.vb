@@ -435,7 +435,7 @@ Dim strText As String
         Exit Function
     End If
 
-    Using sr As New StreamReader(strDefaultFile,
+    Using sr As New System.IO.StreamReader(strDefaultFile,
         System.Text.Encoding.GetEncoding("utf8"))
         strText = sr.ReadToEnd()
     End Using
