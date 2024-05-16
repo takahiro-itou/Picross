@@ -425,7 +425,29 @@ Public Function SetDefaultText(ByVal strDefaultFile As String) As String
 '--------------------------------------------------------------------
 'ファイルからデフォルトのテキストを読み込む
 '--------------------------------------------------------------------
+Dim FR As Long
+Dim strLine As String
+Dim strText As String
 
+    If Dir$(strDefaultFile) = "" Then
+        MsgBox "デフォルトのテキストを定義したファイルが見つかりません。" & vbCrLf & strDefaultFile
+        SetDefaultText = ""
+        Exit Function
+    End If
+
+    FR = FreeFile
+    Open strDefaultFile For Input As #FR
+        Do Until EOF(FR)
+            Line Input #FR, strLine
+            If EOF(FR) Then
+                strText = strText & strLine
+            Else
+                strText = strText & strLine & vbCrLf
+            End If
+        Loop
+    Close #FR
+
+    SetDefaultText = strText
 End Function
 
 Public Function StringToByte(ByVal strText As String, _
