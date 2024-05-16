@@ -435,17 +435,10 @@ Dim strText As String
         Exit Function
     End If
 
-    FR = FreeFile
-    Open strDefaultFile For Input As #FR
-        Do Until EOF(FR)
-            Line Input #FR, strLine
-            If EOF(FR) Then
-                strText = strText & strLine
-            Else
-                strText = strText & strLine & vbCrLf
-            End If
-        Loop
-    Close #FR
+    Using sr As New StreamReader(strDefaultFile,
+        System.Text.Encoding.GetEncoding("utf8"))
+        strText = sr.ReadToEnd()
+    End Using
 
     SetDefaultText = strText
 End Function
