@@ -430,7 +430,7 @@ Dim strLine As String
 Dim strText As String
 
     If Dir$(strDefaultFile) = "" Then
-        MsgBox "デフォルトのテキストを定義したファイルが見つかりません。" & vbCrLf & strDefaultFile
+        MessageBox.Show("デフォルトのテキストを定義したファイルが見つかりません。" & vbCrLf & strDefaultFile)
         SetDefaultText = ""
         Exit Function
     End If
