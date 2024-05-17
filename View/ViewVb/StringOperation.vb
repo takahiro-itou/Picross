@@ -425,8 +425,6 @@ Public Function SetDefaultText(ByVal strDefaultFile As String) As String
 '--------------------------------------------------------------------
 'ファイルからデフォルトのテキストを読み込む
 '--------------------------------------------------------------------
-Dim FR As Long
-Dim strLine As String
 Dim strText As String
 
     If Dir$(strDefaultFile) = "" Then
