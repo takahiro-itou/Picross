@@ -8,15 +8,15 @@ Public Const SQUARE_COLOR As Long = &HF&
 Public Const MAX_HINTS_PER_LINE As Long = 64
 Public Const MAX_SQUARES_PER_LINE As Long = 256
 
-Public Type tPicrossHint
-    nCount As Long
-    nNumbers(0 To MAX_HINTS_PER_LINE - 1) As Long
-    nColors(0 To MAX_HINTS_PER_LINE - 1) As Long
-End Type
+Public Structure tPicrossHint
+    Public nCount As Long
+    Public nNumbers(0 To MAX_HINTS_PER_LINE - 1) As Long
+    PublicnColors(0 To MAX_HINTS_PER_LINE - 1) As Long
+End Structure
 
-Public Type tPicrossLine
-    nSquares(0 To MAX_SQUARES_PER_LINE - 1) As Byte
-    nBlockIndex(0 To MAX_SQUARES_PER_LINE - 1) As Long
-End Type
+Public Structure tPicrossLine
+    Public nSquares(0 To MAX_SQUARES_PER_LINE - 1) As Byte
+    Pubic nBlockIndex(0 To MAX_SQUARES_PER_LINE - 1) As Long
+End Structure
 
 End Module
