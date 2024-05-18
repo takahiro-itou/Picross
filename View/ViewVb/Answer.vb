@@ -16,7 +16,7 @@ End Structure
 
 Public Structure tPicrossLine
     Public nSquares(0 To MAX_SQUARES_PER_LINE - 1) As Byte
-    Pubic nBlockIndex(0 To MAX_SQUARES_PER_LINE - 1) As Long
+    Public nBlockIndex(0 To MAX_SQUARES_PER_LINE - 1) As Long
 End Structure
 
 End Module
