@@ -19,4 +19,7 @@ Public Structure tPicrossLine
     Public nBlockIndex() As Integer '(0 To MAX_SQUARES_PER_LINE - 1) As Long
 End Structure
 
+Public Const MINLEVEL As Long = 1
+Public Const MAXLEVEL As Long = 2
+
 End Module
