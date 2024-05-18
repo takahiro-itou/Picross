@@ -10,13 +10,13 @@ Public Const MAX_SQUARES_PER_LINE As Long = 256
 
 Public Structure tPicrossHint
     Public nCount As Long
-    Public nNumbers(0 To MAX_HINTS_PER_LINE - 1) As Long
-    Public nColors(0 To MAX_HINTS_PER_LINE - 1) As Long
+    Public nNumbers() As Integer    '(0 To MAX_HINTS_PER_LINE - 1) As Long
+    Public nColors() As Integer     '(0 To MAX_HINTS_PER_LINE - 1) As Long
 End Structure
 
 Public Structure tPicrossLine
-    Public nSquares(0 To MAX_SQUARES_PER_LINE - 1) As Byte
-    Public nBlockIndex(0 To MAX_SQUARES_PER_LINE - 1) As Long
+    Public nSquares() As Byte       '(0 To MAX_SQUARES_PER_LINE - 1) As Byte
+    Public nBlockIndex() As Integer '(0 To MAX_SQUARES_PER_LINE - 1) As Long
 End Structure
 
 End Module
