@@ -129,7 +129,6 @@ Public Function GetFullPathName(ByVal strPathName As String, _
 '--------------------------------------------------------------------
 'strPathNameを基準とした、相対パスから、フルパスを取得する
 '--------------------------------------------------------------------
-Dim i As Long
 Dim lngPos As Long
 Dim strTemp As String
 Dim strLeft As String
