@@ -11,7 +11,7 @@ Public Const MAX_SQUARES_PER_LINE As Long = 256
 Public Structure tPicrossHint
     Public nCount As Long
     Public nNumbers(0 To MAX_HINTS_PER_LINE - 1) As Long
-    PublicnColors(0 To MAX_HINTS_PER_LINE - 1) As Long
+    Public nColors(0 To MAX_HINTS_PER_LINE - 1) As Long
 End Structure
 
 Public Structure tPicrossLine
