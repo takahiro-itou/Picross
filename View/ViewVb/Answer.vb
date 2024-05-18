@@ -25,4 +25,9 @@ Public Const MAXLEVEL As Long = 2
 Public glngMinLevel As Long
 Public glngMaxLevel As Long
 
+Public Const PROGRESS_START As Long = 0
+Public Const PROGRESS_CREATE As Long = 1
+Public Const PROGRESS_PROCEED As Long = 2
+Public Const PROGRESS_END As Long = 3
+
 End Module
