@@ -30,4 +30,21 @@ Public Const PROGRESS_CREATE As Long = 1
 Public Const PROGRESS_PROCEED As Long = 2
 Public Const PROGRESS_END As Long = 3
 
+' Public gobjfProgress As frmProgress
+Public gblnCancel As Boolean
+Public glngShowIntervals As Long
+Public glngNextShowFrame As Long
+
+Public gstrCurrentCursorType As String
+Public glngCurrentCursorPos As Long
+Public glngCurrentPatterns As Long
+Public glngLastLinePatterns As Long
+
+Public glngStartProgressCurrent As Long
+Public glngStartProgressTasks As Long
+Public glngProceedProgressCurrent As Long
+Public glngProceedProgressTasks As Long
+Public glngEndProgressCurrent As Long
+Public glngEndProgressTasks As Long
+
 End Module
