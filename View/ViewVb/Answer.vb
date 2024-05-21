@@ -47,4 +47,21 @@ Public glngProceedProgressTasks As Long
 Public glngEndProgressCurrent As Long
 Public glngEndProgressTasks As Long
 
+Public Function FuncShowingProgress(ByVal nLevel As Long, _
+        ByVal nProgress As Long, _
+        ByRef lpTest As tPicrossLine, ByRef lpCurrent As tPicrossLine, _
+        ByVal nCurrent As Long, ByVal nTasks As Long) As Long
+'------------------------------------------------------------------------------
+' 現在の進行状況を報告する機会を与えられるコールバック関数
+'------------------------------------------------------------------------------
+
+End Function
+
+Public Function SetupCallback() As Boolean
+'------------------------------------------------------------------------------
+' コールバック関数を登録する
+'------------------------------------------------------------------------------
+
+End Function
+
 End Module
