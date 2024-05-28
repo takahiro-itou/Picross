@@ -70,4 +70,12 @@ Public Function SetupCallback() As Boolean
 
 End Function
 
+Public Function setCallbackShowingProgress( _
+        ByVal lpfnCallback As ShowingProgressDelegate) As Long
+'------------------------------------------------------------------------------
+' 進捗表示を行うコールバック関数を設定する
+'------------------------------------------------------------------------------
+
+End Function
+
 End Module
