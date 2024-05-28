@@ -48,7 +48,7 @@ Public glngEndProgressCurrent As Long
 Public glngEndProgressTasks As Long
 
 Public Delegate Function ShowingProgressDelegate( _
-        ByVal nLevel As Ling, _
+        ByVal nLevel As Long, _
         ByVal nProgress As Long, _
         ByRef lpTest As tPicrossLine, ByRef lpCurrent As tPicrossLine, _
         ByVal nCurrent As Long, ByVal nTasks As Long) As Long
