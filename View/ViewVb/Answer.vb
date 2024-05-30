@@ -66,7 +66,7 @@ Dim strInfo As String
 
     DoEvents
     If gobjfProgress Is Nothing Then
-        Set gobjfProgress = New frmProgress
+        gobjfProgress = New System.Windows.Forms.Form()
         gobjfProgress.Show
         gobjfMainForm.SetFocus
     End If
