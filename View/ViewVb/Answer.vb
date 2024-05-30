@@ -75,7 +75,7 @@ Public Function setCallbackShowingProgress( _
 '------------------------------------------------------------------------------
 ' 進捗表示を行うコールバック関数を設定する
 '------------------------------------------------------------------------------
-
+    setCallbackShowingProgress = 0
 End Function
 
 End Module
