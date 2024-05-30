@@ -31,6 +31,7 @@ Public Const PROGRESS_PROCEED As Long = 2
 Public Const PROGRESS_END As Long = 3
 
 ' Public gobjfProgress As frmProgress
+Public gobjfProgress As System.Windows.Forms.Form
 Public gblnCancel As Boolean
 Public glngShowIntervals As Long
 Public glngNextShowFrame As Long
