@@ -105,7 +105,8 @@ Dim strInfo As String
             "(" & glngEndProgressCurrent & "/" & glngEndProgressTasks & ")"
         ' @todo
         ' gobjfProgress.lblInfo.Caption = strCaption & vbCrLf & strInfo
-        gobjfMainForm.Caption = strCaption
+        ' @todo
+        ' gobjfMainForm.Caption = strCaption
         glngNextShowFrame = glngNextShowFrame + glngShowIntervals
     End If
 
