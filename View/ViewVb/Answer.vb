@@ -60,7 +60,59 @@ Public Function FuncShowingProgress(ByVal nLevel As Long, _
 '------------------------------------------------------------------------------
 ' 現在の進行状況を報告する機会を与えられるコールバック関数
 '------------------------------------------------------------------------------
+Dim strCaption As String
+Dim strInfo As String
 
+    DoEvents
+    If gobjfProgress Is Nothing Then
+        Set gobjfProgress = New frmProgress
+        gobjfProgress.Show
+        gobjfMainForm.SetFocus
+    End If
+
+    If (gblnCancel) Then
+        FuncShowingProgress = 0
+        Exit Function
+    End If
+
+    Select Case nProgress
+        Case PROGRESS_START:
+            glngStartProgressCurrent = nCurrent
+            glngStartProgressTasks = nTasks
+        Case PROGRESS_CREATE, PROGRESS_PROCEED:
+            glngProceedProgressCurrent = nCurrent
+            glngProceedProgressTasks = nTasks
+        Case PROGRESS_END:
+            glngEndProgressCurrent = nCurrent
+            glngEndProgressTasks = nTasks
+            glngNextShowFrame = 0
+    End Select
+
+    If (glngNextShowFrame <= 0) Then
+        strCaption = "ゲーム [自動解答中] [Lv:" & nLevel & "] " & _
+            gstrCurrentCursorType & glngCurrentCursorPos
+
+        strInfo = "開始時の状態:" & vbCrLf
+        strInfo = strInfo & "(" & glngStartProgressCurrent & "/" & glngStartProgressTasks & ")"
+
+        strInfo = strInfo & vbCrLf & "現在の状態:" & vbCrLf
+        strInfo = strInfo & "調べたパターン=" & Format$(glngCurrentPatterns, "#,##0") & _
+            vbCrLf & "(" & nCurrent & "/" & nTasks & ")"
+        strInfo = strInfo & vbCrLf & "一つ前の列または行の結果：" & vbCrLf & _
+            "調べたパターン=" & Format$(glngLastLinePatterns, "#,##0") & vbCrLf & _
+            "(" & glngEndProgressCurrent & "/" & glngEndProgressTasks & ")"
+        gobjfProgress.lblInfo.Caption = strCaption & vbCrLf & strInfo
+        gobjfMainForm.Caption = strCaption
+        glngNextShowFrame = glngNextShowFrame + glngShowIntervals
+    End If
+
+    glngCurrentPatterns = glngCurrentPatterns + 1
+    glngNextShowFrame = glngNextShowFrame - 1
+
+    If (glngCurrentPatterns >= &H40000000) Then glngCurrentPatterns = 0
+    DoEvents
+
+    FuncShowingProgress = 1
 End Function
 
 Public Function SetupCallback() As Boolean
