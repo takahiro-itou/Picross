@@ -68,7 +68,8 @@ Dim strInfo As String
     If gobjfProgress Is Nothing Then
         gobjfProgress = New System.Windows.Forms.Form()
         gobjfProgress.Show
-        gobjfMainForm.SetFocus
+        ' @todo
+        ' gobjfMainForm.SetFocus
     End If
 
     If (gblnCancel) Then
