@@ -67,7 +67,11 @@ Public Function SetupCallback() As Boolean
 '------------------------------------------------------------------------------
 ' コールバック関数を登録する
 '------------------------------------------------------------------------------
+Dim lngResult As Long
 
+    glngCurrentPatterns = 0
+    lngResult = setCallbackShowingProgress(AddressOf FuncShowingProgress)
+    SetupCallback = True
 End Function
 
 Public Function setCallbackShowingProgress( _
