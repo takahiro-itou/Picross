@@ -64,7 +64,7 @@ Public Function FuncShowingProgress(ByVal nLevel As Long, _
 Dim strCaption As String
 Dim strInfo As String
 
-    DoEvents
+    Application.DoEvents()
     If gobjfProgress Is Nothing Then
         gobjfProgress = New System.Windows.Forms.Form()
         gobjfProgress.Show
@@ -111,7 +111,7 @@ Dim strInfo As String
     glngNextShowFrame = glngNextShowFrame - 1
 
     If (glngCurrentPatterns >= &H40000000) Then glngCurrentPatterns = 0
-    DoEvents
+    Application.DoEvents()
 
     FuncShowingProgress = 1
 End Function
