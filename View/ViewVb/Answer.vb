@@ -103,7 +103,8 @@ Dim strInfo As String
         strInfo = strInfo & vbCrLf & "一つ前の列または行の結果：" & vbCrLf & _
             "調べたパターン=" & Format$(glngLastLinePatterns, "#,##0") & vbCrLf & _
             "(" & glngEndProgressCurrent & "/" & glngEndProgressTasks & ")"
-        gobjfProgress.lblInfo.Caption = strCaption & vbCrLf & strInfo
+        ' @todo
+        ' gobjfProgress.lblInfo.Caption = strCaption & vbCrLf & strInfo
         gobjfMainForm.Caption = strCaption
         glngNextShowFrame = glngNextShowFrame + glngShowIntervals
     End If
