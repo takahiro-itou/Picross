@@ -31,9 +31,9 @@ Private mlngHintAreaWidth As Long
 Private mlngHintAreaHeight As Long
 
 Public Function AutoAnswerOneCol(ByVal nCol As Long, _
-    ByVal nLevel As Long, ByVal bMsg As Boolean) As Boolean
+        ByVal nLevel As Long, ByVal bMsg As Boolean) As Boolean
 '------------------------------------------------------------------------------
-'指定された(縦方向の)列の解答をする
+' 指定された(縦方向の)列の解答をする
 '------------------------------------------------------------------------------
 
 End Function
@@ -46,9 +46,29 @@ Public Function AutoAnswerOneRow(ByVal nRow As Long, _
 
 End Function
 
-Public Function ChangeSquare(ByVal nCol As Long, ByVal nRow As Long, ByVal nState As Long) As Long
+Public Function ChangeSquare( _
+        ByVal nCol As Long, ByVal nRow As Long, _
+        ByVal nState As Long) As Long
+'------------------------------------------------------------------------------
+' 指定されたピクチャーボックスに、カーソルを表示する
+' bNoHintsをTrue にするとヒントを表示する為の領域を空けない
+'------------------------------------------------------------------------------
 Dim lngPrev As Long
 
+    lngPrev = mlngSquares(nCol, nRow)
+    If (lngPrev And SQUARE_BLANK) Then lngPrev = 0
+
+    If (nState And SQUARE_BLANK) Then nState = 0
+
+    If (nState = 0) Then
+        mlngSquares(nCol, nRow) = 0
+        If (lngPrev <> 0) Then mlngRestSquares = mlngRestSquares + 1
+    Else
+        mlngSquares(nCol, nRow) = (nState And &H2F&)
+        If (lngPrev = 0) Then mlngRestSquares = mlngRestSquares - 1
+    End If
+
+    ChangeSquare = mlngRestSquares
 End Function
 
 Public Function DrawCursor(ByRef lpTarget As PictureBox, _
