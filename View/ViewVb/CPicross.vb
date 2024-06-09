@@ -9,7 +9,7 @@ Private mlngTestModeLevel As Long
 'フィールド
 Private mlngFieldCols As Long
 Private mlngFieldRows As Long
-Private mlngSquares() As Long
+Private mlngSquares(,) As Long
 
 'ヒントデータ
 Private mutTateHints() As tPicrossHint       '縦方向のヒント
