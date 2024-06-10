@@ -35,7 +35,61 @@ Public Function AutoAnswerOneCol(ByVal nCol As Long, _
 '------------------------------------------------------------------------------
 ' 指定された(縦方向の)列の解答をする
 '------------------------------------------------------------------------------
+Dim Y As Long, lngResult As Long
+Dim utCurrent As tPicrossLine
+Dim utResult As tPicrossLine
+Dim lngCount As Long
 
+    'パターン数を計算する
+    lngCount = 0
+    With mutTateHints(nCol)
+        For Y = 0 To .nCount - 1
+            lngCount = lngCount + .nNumbers(Y)
+        Next Y
+        lngCount = lngCount + (.nCount - 1)
+        lngCount = mlngFieldRows - lngCount
+
+        glngNextShowFrame = 0
+        gstrCurrentCursorType = "現在の列 = "
+        glngCurrentCursorPos = nCol
+        glngLastLinePatterns = glngCurrentPatterns
+        glngCurrentPatterns = 0
+    End With
+
+    '指定された列のデータを収集する
+    With utCurrent
+        For Y = 0 To mlngFieldRows - 1
+            .nSquares(Y) = mlngSquares(nCol, Y)
+            If .nSquares(Y) = 0 Then .nSquares(Y) = SQUARE_BLANK
+        Next Y
+    End With
+
+    Select Case nLevel
+        Case 1:
+            lngResult = stepLineLv1(mlngFieldRows, mutTateHints(nCol), utCurrent, utResult)
+        Case Else:
+            lngResult = stepLineLv2(mlngFieldRows, mutTateHints(nCol), utCurrent, utResult)
+    End Select
+
+    If (lngResult < 0) Then
+        If (bMsg) Then MsgBox "エラーが発生しました。問題と現在の局面を確かめてください。"
+        AutoAnswerOneCol = False
+        Exit Function
+    End If
+
+    '結果を転送する
+    With utResult
+        For Y = 0 To mlngFieldRows - 1
+            If (.nSquares(Y) = SQUARE_BLANK) Then .nSquares(Y) = 0
+            If (mlngSquares(nCol, Y) = 0) And (.nSquares(Y) <> 0) Then
+                mlngRestSquares = mlngRestSquares - 1
+            End If
+            mlngSquares(nCol, Y) = .nSquares(Y)
+        Next Y
+    End With
+
+    '正常終了
+    AutoAnswerOneCol = True
 End Function
 
 Public Function AutoAnswerOneRow(ByVal nRow As Long, _
