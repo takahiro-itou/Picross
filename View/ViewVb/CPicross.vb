@@ -136,7 +136,10 @@ Dim lngCount As Long
     End Select
 
     If (lngResult < 0) Then
-        If (bMsg) Then MsgBox "エラーが発生しました。問題と現在の局面を確かめてください。"
+        If (bMsg) Then
+            MessageBox.Show(
+                "エラーが発生しました。問題と現在の局面を確かめてください。")
+        End If
         AutoAnswerOneRow = False
         Exit Function
     End If
