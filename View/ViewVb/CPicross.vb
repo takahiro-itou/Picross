@@ -238,9 +238,12 @@ End Function
 
 Public Function GetScreenWidth() As Long
 '------------------------------------------------------------------------------
-'フィールドを表示するのに最低限必要な幅を取得する
+' フィールドを表示するのに最低限必要な幅を取得する
 '------------------------------------------------------------------------------
+Dim lngWidth As Long
 
+    lngWidth = (mlngMaxYokoHintsLength + mlngFieldCols) * mlngSquareWidth + mlngFieldLeftMargin * 2
+    GetScreenWidth = lngWidth
 End Function
 
 Public Function InitializeGame(ByVal nGameID As Long, ByVal nCols As Long, ByVal nRows As Long, _
