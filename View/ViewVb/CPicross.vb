@@ -193,10 +193,11 @@ Public Function DrawCursor(ByRef lpTarget As PictureBox, _
 
 End Function
 
-Public Function DrawGameField(ByRef lpTarget As PictureBox, ByVal nMargin As Long, _
-    ByVal bNoCheckMarks As Boolean, ByVal bNoHints As Boolean, _
-    ByVal nLeftCol As Long, ByVal nTopRow As Long, _
-    ByVal nShowCols As Long, ByVal nShowRows As Long) As Boolean
+Public Function DrawGameField(ByRef lpTarget As PictureBox, _
+        ByVal nMargin As Long, _
+        ByVal bNoCheckMarks As Boolean, ByVal bNoHints As Boolean, _
+        ByVal nLeftCol As Long, ByVal nTopRow As Long, _
+        ByVal nShowCols As Long, ByVal nShowRows As Long) As Boolean
 '------------------------------------------------------------------------------
 '指定されたピクチャーボックスに、現在の局面を表示する
 'bNoHintsをTrue にするとヒントを表示する為の領域を空けない
@@ -227,9 +228,12 @@ End Function
 
 Public Function GetScreenHeight() As Long
 '------------------------------------------------------------------------------
-'フィールドを表示するのに最低限必要な高さを取得する
+' フィールドを表示するのに最低限必要な高さを取得する
 '------------------------------------------------------------------------------
+Dim lngHeight As Long
 
+    lngHeight = (mlngMaxTateHintsLength + mlngFieldRows) * mlngSquareHeight + mlngFieldTopMargin * 2
+    GetScreenHeight = lngHeight
 End Function
 
 Public Function GetScreenWidth() As Long
