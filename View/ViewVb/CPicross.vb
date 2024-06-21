@@ -226,11 +226,29 @@ Dim strFileName As String
     mlngTestModeLevel = mlngTestModeLevel + 1
 End Function
 
-Public Function ExitTestMode(ByVal bFlagSet As Boolean, ByRef lpCursorX As Long, ByRef lpCursorY As Long) As Long
+Public Function ExitTestMode(ByVal bFlagSet As Boolean, _
+        ByRef lpCursorX As Long, ByRef lpCursorY As Long) As Long
 '------------------------------------------------------------------------------
-'テストモード（背理法モード）から抜ける
+' テストモード（背理法モード）から抜ける
 '------------------------------------------------------------------------------
+Dim strFileName As String
 
+    If (mlngTestModeLevel = 0) Then
+        MsgBox "現在はテストモードではありません！"
+        ExitTestMode = 0
+        Exit Function
+    End If
+
+    mlngTestModeLevel = mlngTestModeLevel - 1
+
+    If (bFlagSet = False) Then
+        '保存された局面をロードする
+        strFileName = gstrAppPath & "\Test" & mlngGameID & "." & Trim$(Str$(mlngTestModeLevel))
+        If LoadGameStatus(Me, strFileName, lpCursorX, lpCursorY) = False Then
+            MsgBox "致命的エラー：テストモードに入る直前の局面を記録したデータをロードできません。" & strFileName
+        End If
+    End If
+    ExitTestMode = mlngTestModeLevel
 End Function
 
 Public Function GetScreenHeight() As Long
