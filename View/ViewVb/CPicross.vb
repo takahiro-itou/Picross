@@ -344,11 +344,27 @@ Dim i As Long
     End With
 End Sub
 
-Public Sub SetYokoHint(ByVal Y As Long, ByVal nLength As Long, ByRef lpNumbers() As Long, ByRef lpColors() As Long)
+Public Sub SetYokoHint(ByVal Y As Long, ByVal nLength As Long, _
+        ByRef lpNumbers() As Long, ByRef lpColors() As Long)
 '------------------------------------------------------------------------------
-'指定した行の、横方向のヒントをセットする
+' 指定した行の、横方向のヒントをセットする
 '------------------------------------------------------------------------------
+Dim i As Long
 
+    If (nLength > mlngMaxYokoHintsLength) Then mlngMaxYokoHintsLength = nLength
+
+    With mutYokoHints(Y)
+        .nCount = nLength
+        If nLength = 0 Then
+            .nNumbers(0) = 0
+            .nColors(0) = 1
+        Else
+            For i = 0 To nLength - 1
+                .nNumbers(i) = lpNumbers(i)
+                .nColors(i) = lpColors(i)
+            Next i
+        End If
+    End With
 End Sub
 
 End Class
