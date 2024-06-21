@@ -245,7 +245,8 @@ Dim strFileName As String
         '保存された局面をロードする
         strFileName = gstrAppPath & "\Test" & mlngGameID & "." & Trim$(Str$(mlngTestModeLevel))
         If LoadGameStatus(Me, strFileName, lpCursorX, lpCursorY) = False Then
-            MsgBox "致命的エラー：テストモードに入る直前の局面を記録したデータをロードできません。" & strFileName
+            MessageBox.Show(
+                "致命的エラー：テストモードに入る直前の局面を記録したデータをロードできません。" & strFileName)
         End If
     End If
     ExitTestMode = mlngTestModeLevel
