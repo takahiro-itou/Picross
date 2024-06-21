@@ -234,7 +234,7 @@ Public Function ExitTestMode(ByVal bFlagSet As Boolean, _
 Dim strFileName As String
 
     If (mlngTestModeLevel = 0) Then
-        MsgBox "現在はテストモードではありません！"
+        MessageBox.Show("現在はテストモードではありません！")
         ExitTestMode = 0
         Exit Function
     End If
