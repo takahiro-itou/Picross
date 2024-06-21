@@ -39,9 +39,37 @@ End Function
 
 Public Sub Main()
 '------------------------------------------------------------------------------
-'プログラムのエントリポイント
+' プログラムのエントリポイント
 '------------------------------------------------------------------------------
+Dim lngVersion As Long
 
+    'アプリケーション情報を初期化する
+    gstrAppPath = App.Path
+    If Right$(gstrAppPath, 1) = "\" Then gstrAppPath = Left$(gstrAppPath, Len(gstrAppPath) - 1)
+
+    'DLL のバージョンをチェックする
+    ChDir gstrAppPath
+    lngVersion = getPicrossDLLVersion()
+    If (lngVersion < &H10000) Then
+        MsgBox "Error : The DLL is old version!"
+        End
+    End If
+
+    'コールバック関数を登録する
+    If SetupCallback() = False Then
+        MsgBox "Error : Could not setup callback!"
+        End
+    End If
+
+    'メインフォームを起動する
+    Set gobjfMainForm = New frmGame
+    gobjfMainForm.Show
+
+    'コマンドラインを解析する
+    If ParseCommandLine(Command$()) = False Then
+        MsgBox "アプリケーションの初期化に失敗しました。"
+        End
+    End If
 End Sub
 
 Public Function ParseCommandLine(ByVal strCommandLine As String) As Boolean
