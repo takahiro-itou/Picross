@@ -212,11 +212,18 @@ Public Function DrawHintNumbers(ByRef lpTarget As PictureBox) As Boolean
 
 End Function
 
-Public Function EnterTestMode(ByVal nCursorX As Long, ByVal nCursorY As Long) As Long
+Public Function EnterTestMode( _
+        ByVal nCursorX As Long, ByVal nCursorY As Long) As Long
 '------------------------------------------------------------------------------
-'テストモード（背理法モード）に入る
+' テストモード（背理法モード）に入る
 '------------------------------------------------------------------------------
+Dim strFileName As String
 
+    '現在の状態をファイルに保存する
+    strFileName = gstrAppPath & "\Test" & mlngGameID & "." & Trim$(Str$(mlngTestModeLevel))
+    SaveGameStatus Me, strFileName, nCursorX, nCursorY
+
+    mlngTestModeLevel = mlngTestModeLevel + 1
 End Function
 
 Public Function ExitTestMode(ByVal bFlagSet As Boolean, ByRef lpCursorX As Long, ByRef lpCursorY As Long) As Long
