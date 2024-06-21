@@ -321,11 +321,27 @@ Public Function PicrossSaveStatus(ByVal lngFileNumber As Long, ByVal lngStartOff
 
 End Function
 
-Public Sub SetTateHint(ByVal X As Long, ByVal nLength As Long, ByRef lpNumbers() As Long, ByRef lpColors() As Long)
+Public Sub SetTateHint(ByVal X As Long, ByVal nLength As Long, _
+        ByRef lpNumbers() As Long, ByRef lpColors() As Long)
 '------------------------------------------------------------------------------
-'指定した列の、縦方向のヒントをセットする
+' 指定した列の、縦方向のヒントをセットする
 '------------------------------------------------------------------------------
+Dim i As Long
 
+    If (nLength > mlngMaxTateHintsLength) Then mlngMaxTateHintsLength = nLength
+
+    With mutTateHints(X)
+        .nCount = nLength
+        If nLength = 0 Then
+            .nNumbers(0) = 0
+            .nColors(0) = 1
+        Else
+            For i = 0 To nLength - 1
+                .nNumbers(i) = lpNumbers(i)
+                .nColors(i) = lpColors(i)
+            Next i
+        End If
+    End With
 End Sub
 
 Public Sub SetYokoHint(ByVal Y As Long, ByVal nLength As Long, ByRef lpNumbers() As Long, ByRef lpColors() As Long)
