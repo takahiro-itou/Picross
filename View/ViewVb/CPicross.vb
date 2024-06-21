@@ -221,7 +221,7 @@ Dim strFileName As String
 
     '現在の状態をファイルに保存する
     strFileName = gstrAppPath & "\Test" & mlngGameID & "." & Trim$(Str$(mlngTestModeLevel))
-    SaveGameStatus Me, strFileName, nCursorX, nCursorY
+    SaveGameStatus(Me, strFileName, nCursorX, nCursorY)
 
     mlngTestModeLevel = mlngTestModeLevel + 1
 End Function
