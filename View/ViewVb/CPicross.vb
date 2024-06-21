@@ -272,12 +272,39 @@ Dim lngWidth As Long
     GetScreenWidth = lngWidth
 End Function
 
-Public Function InitializeGame(ByVal nGameID As Long, ByVal nCols As Long, ByVal nRows As Long, _
-    ByVal nSquareWidth As Long, ByVal nSquareHeight As Long) As Boolean
+Public Function InitializeGame(ByVal nGameID As Long, _
+        ByVal nCols As Long, ByVal nRows As Long, _
+        ByVal nSquareWidth As Long, ByVal nSquareHeight As Long) As Boolean
 '------------------------------------------------------------------------------
-'ゲームを初期化する
+' ゲームを初期化する
 '------------------------------------------------------------------------------
 
+    mlngSquareWidth = nSquareWidth
+    mlngSquareHeight = nSquareHeight
+
+    mlngGameID = nGameID
+    mlngFieldCols = nCols
+    mlngFieldRows = nRows
+    mlngRestSquares = nCols * nRows
+
+    ReDim mlngSquares(0 To nCols - 1, 0 To nRows - 1)
+    ReDim mutTateHints(0 To nCols - 1)
+    ReDim mutYokoHints(0 To nRows - 1)
+
+    mlngMaxTateHintsLength = 1
+    mlngMaxYokoHintsLength = 1
+
+    If (nCols > 40) Or (nRows > 30) Then
+        glngShowIntervals = 16383
+        glngMinLevel = MAXLEVEL
+        glngMaxLevel = MAXLEVEL
+    Else
+        glngShowIntervals = 255
+        glngMinLevel = MAXLEVEL
+        glngMaxLevel = MAXLEVEL
+    End If
+
+    InitializeGame = True
 End Function
 
 Public Function PicrossLoadStatus(ByVal lngFileNumber As Long, ByVal lngStartOffset As Long) As Boolean
