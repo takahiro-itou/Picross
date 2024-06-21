@@ -47,14 +47,6 @@ Dim lngVersion As Long
     gstrAppPath = App.Path
     If Right$(gstrAppPath, 1) = "\" Then gstrAppPath = Left$(gstrAppPath, Len(gstrAppPath) - 1)
 
-    'DLL のバージョンをチェックする
-    ChDir gstrAppPath
-    lngVersion = getPicrossDLLVersion()
-    If (lngVersion < &H10000) Then
-        MsgBox "Error : The DLL is old version!"
-        End
-    End If
-
     'コールバック関数を登録する
     If SetupCallback() = False Then
         MsgBox "Error : Could not setup callback!"
