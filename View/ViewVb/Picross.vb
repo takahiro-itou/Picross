@@ -114,7 +114,7 @@ Dim lngColors(0 To MAX_HINTS_PER_LINE - 1) As Long
                 Exit For
             End If
         Next i
-        lpGame.SetYokoHint lngLine, lngCount, lngNumbers(), lngColors()
+        lpGame.SetYokoHint(lngLine, lngCount, lngNumbers, lngColors)
     Next lngLine
 
     '縦方向のヒントデータを読み出す
@@ -131,7 +131,7 @@ Dim lngColors(0 To MAX_HINTS_PER_LINE - 1) As Long
                 Exit For
             End If
         Next i
-        lpGame.SetTateHint lngLine, lngCount, lngNumbers(), lngColors()
+        lpGame.SetTateHint(lngLine, lngCount, lngNumbers, lngColors)
     Next lngLine
 
     'ロード完了
