@@ -45,7 +45,7 @@ Dim strHeader As String
     FN = FreeFile()
     FileOpen(FN, strFileName, OpenMode.Input, OpenAccess.Read)
 
-    Input(FN, strLine)
+    strLine = LineInput(FN)
     strHeader = ParseString(strLine, "=")
     If (strHeader <> "Picross Game Data") Then
         MessageBox.Show(
@@ -320,7 +320,7 @@ Dim strLine As String
 Dim strTemp As String
 
     Do Until EOF(fileNumber)
-        Input(fileNumber, strTemp)
+        strTemp = LineInput(fileNumber)
         strLine = Trim$(ParseString(strTemp, "//"))
         If (strLine <> "") Then Exit Do
     Loop
