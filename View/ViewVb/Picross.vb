@@ -43,34 +43,41 @@ Dim strLine As String
 Dim strHeader As String
 
     FN = FreeFile
-    Open strFileName For Input As #FN
-        Line Input #FN, strLine
-        strHeader = ParseString(strLine, "=")
-        If (strHeader <> "Picross Game Data") Then
-            MsgBox "このファイルは読み込めません。" & vbCrLf & _
-                "ピクロスの問題データではないか、ファイルが壊れています。" & vbCrLf & strFileName
-            LoadGameData = False
-            Close #FN
-            Exit Function
-        End If
+    FileOpen(FN, strFileName, OpenMode.Input, OpenAccess.Read)
 
-        If (strLine = "Standard") Then
-            ' 標準形式
-            LoadGameData = LoadGameDataFromStandardFile(lpGame, FN)
-            Close #FN
-            Exit Function
-        ElseIf (strLine = "INI") Then
-            ' INI 形式
-            Close #FN
-            LoadGameData = LoadGameDataFromIniFile(lpGame, strFileName)
-            Exit Function
-        End If
-    Close #FN
+    Input(FN, strLine)
+    strHeader = ParseString(strLine, "=")
+    If (strHeader <> "Picross Game Data") Then
+        MessageBox.Show(
+            "このファイルは読み込めません。" & vbCrLf & _
+            "ピクロスの問題データではないか、ファイルが壊れています。" &
+            vbCrLf & strFileName)
+        LoadGameData = False
+        FileClose(FN)
+        Exit Function
+    End If
+
+    If (strLine = "Standard") Then
+        ' 標準形式
+        LoadGameData = LoadGameDataFromStandardFile(lpGame, FN)
+        FileClose(FN)
+        Exit Function
+    ElseIf (strLine = "INI") Then
+        ' INI 形式
+        FileClose(FN)
+        LoadGameData = LoadGameDataFromIniFile(lpGame, strFileName)
+        Exit Function
+    End If
+
+    FileClose(FN)
 
     ' 読み取り失敗。不明なファイル形式
-    MsgBox "不明なファイル形式、又はファイル形式が指定されていません。" & vbCrLf & strLine & vbCrLf & strFileName
+    MessageBox.Show(
+        "不明なファイル形式、又はファイル形式が指定されていません。" &
+        vbCrLf & strLine & vbCrLf & strFileName)
     LoadGameData = False
- Function
+End Function
+
 
 Public Function LoadGameDataFromIniFile(ByRef lpGame As CPicross, ByVal strFileName As String) As Boolean
 '------------------------------------------------------------------------------
