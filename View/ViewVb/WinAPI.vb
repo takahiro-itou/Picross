@@ -67,4 +67,10 @@ Public Function ReleaseDC(ByVal hWnd As IntPtr, _
 End Function
 
 
+<DllImport("gdi32.dll")> _
+Public Function SelectObject( _
+    ByVal hDC As IntPtr, ByVal hGdiObj As IntPtr) As IntPtr
+End Function
+
+
 End Module
