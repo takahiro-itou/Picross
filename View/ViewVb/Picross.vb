@@ -38,11 +38,11 @@ Public Function LoadGameData(
 ''
 ''    ファイルのフォーマットは１行目を見て自動的に識別する
 ''--------------------------------------------------------------------
-Dim FN As Long
+Dim FN As Integer
 Dim strLine As String
 Dim strHeader As String
 
-    FN = FreeFile
+    FN = FreeFile()
     FileOpen(FN, strFileName, OpenMode.Input, OpenAccess.Read)
 
     Input(FN, strLine)
