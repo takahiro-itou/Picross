@@ -59,7 +59,7 @@ Dim lngVersion As Long
 
     'コマンドラインを解析する
     If ParseCommandLine(Command$()) = False Then
-        MsgBox "アプリケーションの初期化に失敗しました。"
+        MessageBox.Show("アプリケーションの初期化に失敗しました。")
         End
     End If
 End Sub
