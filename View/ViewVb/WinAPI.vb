@@ -73,7 +73,7 @@ Public Function SelectObject( _
 End Function
 
 
-Public Function GetSettingINI(
+Public Function getSettingINI(
         ByVal strFileName As String,
         ByVal strSection As String,
         ByVal strKey As String,
@@ -82,21 +82,20 @@ Public Function GetSettingINI(
 '初期化ファイル(.INIファイル)から設定を読み込む
 'レジストリ用のGetSettingを初期化ファイル用にしたもの
 '--------------------------------------------------------------------
+Dim retVal As Integer
+Dim strBuf As System.Text.StringBuilder
+
 Dim rc As Long
 Dim lngPos As Long
 Dim strTemp As String
 
-    strTemp = Space$(1024)
-    rc = GetPrivateProfileString(strSection, strKey, strDefault, strTemp, Len(strTemp), strFileName)
-    lngPos = InStr(strTemp, vbNullChar)
-    If lngPos = 0 Then
-        'NULL文字がないので、バッファをオーバーした
-        GetSettingINI = strTemp
-    Else
-        'NULL文字の手前までを取り出す
-        GetSettingINI = Left$(strTemp, lngPos - 1)
-    End If
+    strBuf = New System.Text.StringBuilder
+    retVal = GetPrivateProfileString(
+                strSection, strKey, strDefault, strBuf,
+                strBuf.Capacity, strFileName)
+    getSettingINI = strBuf.ToString()
 End Function
+
 
 Public Sub SaveSettingINI(
         ByVal strFileName As String,
