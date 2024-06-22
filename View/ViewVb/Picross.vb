@@ -265,17 +265,6 @@ Dim lngCheckLeftSum As Long, lngCheckTopSum As Long
 
     'ロード完了
     LoadGameDataFromStandardFile = True
-    Exit Function
-
-'********************************************************************
-'   Subroutine.
-LabelReadNextLine:
-    Do Until EOF(lngFileNumber)
-        Line Input #lngFileNumber, strTemp
-        strLine = Trim$(ParseString(strTemp, "//"))
-        If (strLine <> "") Then Exit Do
-    Loop
-    Return
 End Function
 
 
