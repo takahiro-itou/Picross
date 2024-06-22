@@ -30,13 +30,47 @@ Public Function getAppPath() As String
 End Function
 
 
-Public Function LoadGameData(ByRef lpGame As CPicross, ByVal strFileName As String) As Boolean
-'------------------------------------------------------------------------------
-'ファイルから問題データを読み込む
-'ファイルのフォーマットは１行目を見て自動的に識別する
-'------------------------------------------------------------------------------
+Public Function LoadGameData(
+        ByRef lpGame As CPicross,
+        ByVal strFileName As String) As Boolean
+''--------------------------------------------------------------------
+''    ファイルから問題データを読み込む
+''
+''    ファイルのフォーマットは１行目を見て自動的に識別する
+''--------------------------------------------------------------------
+Dim FN As Long
+Dim strLine As String
+Dim strHeader As String
 
-End Function
+    FN = FreeFile
+    Open strFileName For Input As #FN
+        Line Input #FN, strLine
+        strHeader = ParseString(strLine, "=")
+        If (strHeader <> "Picross Game Data") Then
+            MsgBox "このファイルは読み込めません。" & vbCrLf & _
+                "ピクロスの問題データではないか、ファイルが壊れています。" & vbCrLf & strFileName
+            LoadGameData = False
+            Close #FN
+            Exit Function
+        End If
+
+        If (strLine = "Standard") Then
+            ' 標準形式
+            LoadGameData = LoadGameDataFromStandardFile(lpGame, FN)
+            Close #FN
+            Exit Function
+        ElseIf (strLine = "INI") Then
+            ' INI 形式
+            Close #FN
+            LoadGameData = LoadGameDataFromIniFile(lpGame, strFileName)
+            Exit Function
+        End If
+    Close #FN
+
+    ' 読み取り失敗。不明なファイル形式
+    MsgBox "不明なファイル形式、又はファイル形式が指定されていません。" & vbCrLf & strLine & vbCrLf & strFileName
+    LoadGameData = False
+ Function
 
 Public Function LoadGameDataFromIniFile(ByRef lpGame As CPicross, ByVal strFileName As String) As Boolean
 '------------------------------------------------------------------------------
