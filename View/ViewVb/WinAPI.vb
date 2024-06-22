@@ -1,6 +1,6 @@
 ''************************************************************************
 ''                                                                      ''
-''                  ---   Picross Solver   View.   ---                  ''
+''                  ---   View of Picross Solver   ---                  ''
 ''                                                                      ''
 ''          Copyright (C), 2024, Takahiro Itou                          ''
 ''          All Rights Reserved.                                        ''
