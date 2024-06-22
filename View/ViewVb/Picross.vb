@@ -141,7 +141,7 @@ End Function
 
 Public Function LoadGameDataFromStandardFile(
         ByRef lpGame As CPicross,
-        ByVal lngFileNumber As Long) As Boolean
+        ByVal lngFileNumber As Integer) As Boolean
 ''--------------------------------------------------------------------
 ''    標準形式のファイルから、問題データを読み込む
 ''--------------------------------------------------------------------
@@ -154,7 +154,8 @@ Dim lngLineSum As Long, lngLineCheckSum As Long
 Dim lngCheckLeftSum As Long, lngCheckTopSum As Long
 
     '問題のサイズを読み取る
-    GoSub LabelReadNextLine
+    strLine = readNextLine(lngFileNumber)
+
     lngCols = Val(ParseString(strLine, " "))
     lngRows = Val(strLine)
     If lpGame.InitializeGame(0, lngCols, lngRows, 14, 14) = False Then
@@ -165,7 +166,7 @@ Dim lngCheckLeftSum As Long, lngCheckTopSum As Long
     '横方向のヒントデータを読み出す
     lngCheckLeftSum = 0
     For lngLine = 0 To lngRows - 1
-        GoSub LabelReadNextLine
+        strLine = readNextLine(lngFileNumber)
 
         lngLineSum = 0
         lngLineCheckSum = 0
@@ -206,7 +207,7 @@ Dim lngCheckLeftSum As Long, lngCheckTopSum As Long
     '縦方向のヒントデータを読み出す
     lngCheckTopSum = 0
     For lngLine = 0 To lngCols - 1
-        GoSub LabelReadNextLine
+        strLine = readNextLine(lngFileNumber)
 
         lngLineSum = 0
         lngLineCheckSum = 0
@@ -307,6 +308,25 @@ Public Function ParseCommandLine(ByVal strCommandLine As String) As Boolean
 '------------------------------------------------------------------------------
 
 End Function
+
+
+Public Function readNextLine(
+        ByVal fileNumber As Integer)
+''--------------------------------------------------------------------
+''    次の空ではない行を読み込む。
+''--------------------------------------------------------------------
+Dim strLine As String
+Dim strTemp As String
+
+    Do Until EOF(fileNumber)
+        Input(fileNumber, strTemp)
+        strLine = Trim$(ParseString(strTemp, "//"))
+        If (strLine <> "") Then Exit Do
+    Loop
+
+    readNextLine = strLine
+End Function
+
 
 Public Function SaveGameStatus(ByRef lpGame As CPicross, ByVal strFileName As String, _
     ByVal nCursorX As Long, ByVal nCursorY As Long) As Boolean
