@@ -7,6 +7,16 @@ Public gstrAppPath As String
 ' Public gobjfMainForm As frmGame
 Public gobjfMainForm As System.Windows.Forms.Form
 
+
+Public Function getAppPath() As String
+''--------------------------------------------------------------------
+''    アプリケーションの実行ディレクトリを取得する。
+''--------------------------------------------------------------------
+    getAppPath = System.IO.Path.GetDirectoryName(
+        System.Reflection.Assembly.GetExecutingAssembly().Location)
+End Function
+
+
 Public Function LoadGameData(ByRef lpGame As CPicross, ByVal strFileName As String) As Boolean
 '------------------------------------------------------------------------------
 'ファイルから問題データを読み込む
