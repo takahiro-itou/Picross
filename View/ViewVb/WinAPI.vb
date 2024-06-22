@@ -57,4 +57,14 @@ Public Function DeleteDC(ByVal hDC As IntPtr) As Integer
 End Function
 
 
+<DllImport("user32.dll")> _
+Public Function GetDC(ByVal hWnd As IntPtr) As IntPtr
+End Function
+
+<DllImport("user32.dll")> _
+Public Function ReleaseDC(ByVal hWnd As IntPtr, _
+    ByVal hDC As IntPtr) As IntPtr
+End Function
+
+
 End Module
