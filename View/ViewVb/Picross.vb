@@ -54,7 +54,7 @@ Public Sub Main()
 Dim lngVersion As Long
 
     'アプリケーション情報を初期化する
-    gstrAppPath = App.Path
+    gstrAppPath = getAppPath()
     If Right$(gstrAppPath, 1) = "\" Then gstrAppPath = Left$(gstrAppPath, Len(gstrAppPath) - 1)
 
     'コールバック関数を登録する
