@@ -1,4 +1,17 @@
-﻿Module Answer
+﻿''************************************************************************
+''                                                                      ''
+''                  ---   View of Picross Solver   ---                  ''
+''                                                                      ''
+''          Copyright (C), 2024, Takahiro Itou                          ''
+''          All Rights Reserved.                                        ''
+''                                                                      ''
+''          License: (See COPYING and LICENSE files)                    ''
+''          GNU Affero General Public License (AGPL) version 3,         ''
+''          or (at your option) any later version.                      ''
+''                                                                      ''
+''************************************************************************
+
+Module Answer
 
 Public Const SQUARE_BLANK As Long = &H80&
 Public Const SQUARE_ASSUM As Long = &H40&
@@ -130,12 +143,31 @@ Dim lngResult As Long
     SetupCallback = True
 End Function
 
+''============================================================================
+''
+''  従来はライブラリに定義されていた関数のスタブ
+''
+
 Public Function setCallbackShowingProgress( _
         ByVal lpfnCallback As ShowingProgressDelegate) As Long
 '------------------------------------------------------------------------------
 ' 進捗表示を行うコールバック関数を設定する
 '------------------------------------------------------------------------------
     setCallbackShowingProgress = 0
+End Function
+
+Public Function stepLineLv1 ( _
+        ByVal nLength As Long, ByRef lpcInput As tPicrossHint, _
+        ByRef lpcFixed As tPicrossLine, _
+        ByRef lpResult As tPicrossLine) As Long
+
+End Function
+
+Public Function stepLineLv2 ( _
+        ByVal nLength As Long, ByRef lpcInput As tPicrossHint, _
+        ByRef lpcFixed As tPicrossLine, _
+        ByRef lpResult As tPicrossLine) As Long
+
 End Function
 
 End Module
