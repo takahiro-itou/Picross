@@ -54,7 +54,7 @@ Dim lngVersion As Long
     End If
 
     'メインフォームを起動する
-    Set gobjfMainForm = New frmGame
+    gobjfMainForm = New frmGame
     gobjfMainForm.Show
 
     'コマンドラインを解析する
