@@ -49,7 +49,7 @@ Dim lngVersion As Long
 
     'コールバック関数を登録する
     If SetupCallback() = False Then
-        MsgBox "Error : Could not setup callback!"
+        MessageBox.Show("Error : Could not setup callback!")
         End
     End If
 
