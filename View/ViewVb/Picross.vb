@@ -79,11 +79,63 @@ Dim strHeader As String
 End Function
 
 
-Public Function LoadGameDataFromIniFile(ByRef lpGame As CPicross, ByVal strFileName As String) As Boolean
-'------------------------------------------------------------------------------
-'INI 形式のファイルから問題データを読み込む
-'------------------------------------------------------------------------------
+Public Function LoadGameDataFromIniFile(
+        ByRef lpGame As CPicross,
+        ByVal strFileName As String) As Boolean
+''--------------------------------------------------------------------
+''    INI 形式のファイルから問題データを読み込む
+''--------------------------------------------------------------------
+Dim i As Long, lngLine As Long, lngCount As Long
+Dim lngCols As Long, lngRows As Long
+Dim strLine As String, strKey As String
+Dim lngNumbers(0 To MAX_HINTS_PER_LINE - 1) As Long
+Dim lngColors(0 To MAX_HINTS_PER_LINE - 1) As Long
 
+    '問題のサイズを読み取る
+    lngCols = GetSettingINI(strFileName, "Head", "Cols", 5)
+    lngRows = GetSettingINI(strFileName, "Head", "Rows", 5)
+
+    If lpGame.InitializeGame(0, lngCols, lngRows, 14, 14) = False Then
+        LoadGameDataFromIniFile = False
+        Exit Function
+    End If
+
+    '横方向のヒントデータを読み出す
+    For lngLine = 0 To lngRows - 1
+        strKey = Trim$(Str$(lngLine))
+        strLine = GetSettingINI(strFileName, "Yoko", strKey, "0:")
+
+        lngCount = Val(ParseString(strLine, ":"))
+        For i = 0 To MAX_HINTS_PER_LINE - 1
+            lngNumbers(i) = Val(ParseString(strLine, ","))
+            lngColors(i) = 1
+            If (lngNumbers(i) = 0) Then
+                lngCount = i
+                Exit For
+            End If
+        Next i
+        lpGame.SetYokoHint lngLine, lngCount, lngNumbers(), lngColors()
+    Next lngLine
+
+    '縦方向のヒントデータを読み出す
+    For lngLine = 0 To lngCols - 1
+        strKey = Trim$(Str$(lngLine))
+        strLine = GetSettingINI(strFileName, "Tate", strKey, "0:")
+
+        lngCount = Val(ParseString(strLine, ":"))
+        For i = 0 To MAX_HINTS_PER_LINE - 1
+            lngNumbers(i) = Val(ParseString(strLine, ","))
+            lngColors(i) = 1
+            If (lngNumbers(i) = 0) Then
+                lngCount = i
+                Exit For
+            End If
+        Next i
+        lpGame.SetTateHint lngLine, lngCount, lngNumbers(), lngColors()
+    Next lngLine
+
+    'ロード完了
+    LoadGameDataFromIniFile = True
 End Function
 
 Public Function LoadGameDataFromStandardFile(ByRef lpGame As CPicross, ByVal lngFileNumber As Long) As Boolean
