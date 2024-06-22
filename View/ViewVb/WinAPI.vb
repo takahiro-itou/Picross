@@ -73,4 +73,21 @@ Public Function SelectObject( _
 End Function
 
 
+Public Function GetSettingINI(ByVal strFileName As String, ByVal strSection As String, ByVal strKey As String, ByVal strDefault As String) As String
+'--------------------------------------------------------------------
+'初期化ファイル(.INIファイル)から設定を読み込む
+'レジストリ用のGetSettingを初期化ファイル用にしたもの
+'--------------------------------------------------------------------
+
+End Function
+
+Public Sub SaveSettingINI(ByVal strFileName As String, ByVal strSection As String, ByVal strKey As String, ByVal strData As String)
+'--------------------------------------------------------------------
+'初期化ファイル(.INIファイル)に設定を書き込む
+'レジストリに用のSaveSettingを初期化ファイル用にしたもの
+'--------------------------------------------------------------------
+
+End Sub
+
+
 End Module
