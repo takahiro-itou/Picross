@@ -138,12 +138,133 @@ Dim lngColors(0 To MAX_HINTS_PER_LINE - 1) As Long
     LoadGameDataFromIniFile = True
 End Function
 
-Public Function LoadGameDataFromStandardFile(ByRef lpGame As CPicross, ByVal lngFileNumber As Long) As Boolean
-'------------------------------------------------------------------------------
-'標準形式のファイルから、問題データを読み込む
-'------------------------------------------------------------------------------
 
+Public Function LoadGameDataFromStandardFile(
+        ByRef lpGame As CPicross,
+        ByVal lngFileNumber As Long) As Boolean
+''--------------------------------------------------------------------
+''    標準形式のファイルから、問題データを読み込む
+''--------------------------------------------------------------------
+Dim i As Long, lngLine As Long, lngCount As Long
+Dim lngCols As Long, lngRows As Long
+Dim strLine As String, strTemp As String
+Dim lngNumbers(0 To MAX_HINTS_PER_LINE - 1) As Long
+Dim lngColors(0 To MAX_HINTS_PER_LINE - 1) As Long
+Dim lngLineSum As Long, lngLineCheckSum As Long
+Dim lngCheckLeftSum As Long, lngCheckTopSum As Long
+
+    '問題のサイズを読み取る
+    GoSub LabelReadNextLine
+    lngCols = Val(ParseString(strLine, " "))
+    lngRows = Val(strLine)
+    If lpGame.InitializeGame(0, lngCols, lngRows, 14, 14) = False Then
+        LoadGameDataFromStandardFile = False
+        Exit Function
+    End If
+
+    '横方向のヒントデータを読み出す
+    lngCheckLeftSum = 0
+    For lngLine = 0 To lngRows - 1
+        GoSub LabelReadNextLine
+
+        lngLineSum = 0
+        lngLineCheckSum = 0
+        For i = 0 To MAX_HINTS_PER_LINE - 1
+            If (Left$(strLine, 1) = "=") Then
+                lngLineCheckSum = Val(Mid$(strLine, 2))
+            End If
+
+            lngNumbers(i) = Val(ParseString(strLine, " "))
+            strLine = Trim$(strLine)
+
+            lngLineSum = lngLineSum + lngNumbers(i)
+            If (lngLineSum > lngCols) Then
+                MsgBox "上から" & lngLine + 1 & "行目の、横方向のヒントにエラーがあります。" & _
+                    vbCrLf & "数値の合計が、フィールドの横幅を超えました。"
+                LoadGameDataFromStandardFile = False
+                Exit Function
+            End If
+
+            lngColors(i) = 1
+            If (lngNumbers(i) = 0) Then
+                lngCount = i
+                Exit For
+            End If
+        Next i
+
+        If (lngLineSum <> lngLineCheckSum) And (lngLineCheckSum > 0) Then
+            MsgBox "上から" & lngLine + 1 & "行目の、横方向のヒントにエラーがあります。" & _
+                vbCrLf & "チェックサムエラーです。" & vbCrLf & _
+                "記録値 = " & lngLineCheckSum & " , 計算値 = " & lngLineSum
+            LoadGameDataFromStandardFile = False
+'            Exit Function
+        End If
+        lngCheckLeftSum = lngCheckLeftSum + lngLineSum
+        lpGame.SetYokoHint lngLine, lngCount, lngNumbers(), lngColors()
+    Next lngLine
+
+    '縦方向のヒントデータを読み出す
+    lngCheckTopSum = 0
+    For lngLine = 0 To lngCols - 1
+        GoSub LabelReadNextLine
+
+        lngLineSum = 0
+        lngLineCheckSum = 0
+        For i = 0 To MAX_HINTS_PER_LINE - 1
+            If (Left$(strLine, 1) = "=") Then
+                lngLineCheckSum = Val(Mid$(strLine, 2))
+            End If
+
+            lngNumbers(i) = Val(ParseString(strLine, " "))
+            strLine = Trim$(strLine)
+
+            lngLineSum = lngLineSum + lngNumbers(i)
+            If (lngLineSum > lngRows) Then
+                MsgBox "左から" & lngLine + 1 & "列目の、縦方向のヒントにエラーがあります。" & _
+                    vbCrLf & "数値の合計が、フィールドの高さを超えました。"
+                LoadGameDataFromStandardFile = False
+                Exit Function
+            End If
+
+            lngColors(i) = 1
+            If (lngNumbers(i) = 0) Then
+                lngCount = i
+                Exit For
+            End If
+        Next i
+
+        If (lngLineSum <> lngLineCheckSum) And (lngLineCheckSum > 0) Then
+            MsgBox "左から" & lngLine + 1 & "列目の、縦方向のヒントにエラーがあります。" & _
+                vbCrLf & "チェックサムエラーです。" & vbCrLf & _
+                "記録値 = " & lngLineCheckSum & " , 計算値 = " & lngLineSum
+'            LoadGameDataFromStandardFile = False
+'            Exit Function
+        End If
+        lngCheckTopSum = lngCheckTopSum + lngLineSum
+        lpGame.SetTateHint lngLine, lngCount, lngNumbers(), lngColors()
+    Next lngLine
+
+    If (lngCheckLeftSum <> lngCheckTopSum) Then
+        MsgBox "この問題は解けません。問題に誤りがあります。" & vbCrLf & _
+            "横方向のヒント数字の合計と、縦方向のヒント数字の合計が一致しません。" & vbCrLf & _
+            "横方向の合計=" & lngCheckLeftSum & " , 縦方向の合計=" & lngCheckTopSum
+    End If
+
+    'ロード完了
+    LoadGameDataFromStandardFile = True
+    Exit Function
+
+'********************************************************************
+'   Subroutine.
+LabelReadNextLine:
+    Do Until EOF(lngFileNumber)
+        Line Input #lngFileNumber, strTemp
+        strLine = Trim$(ParseString(strTemp, "//"))
+        If (strLine <> "") Then Exit Do
+    Loop
+    Return
 End Function
+
 
 Public Function LoadGameStatus(ByRef lpGame As CPicross, ByVal strFileName As String, _
     ByRef lpCursorX As Long, ByRef lpCursorY As Long) As Boolean
