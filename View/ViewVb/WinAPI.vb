@@ -74,7 +74,7 @@ End Function
 
 
 Public Function getSettingINI(
-        ByVal strFileName As String,
+        ByVal fileName As String,
         ByVal strSection As String,
         ByVal strKey As String,
         ByVal strDefault As String) As String
@@ -85,20 +85,16 @@ Public Function getSettingINI(
 Dim retVal As Integer
 Dim strBuf As System.Text.StringBuilder
 
-Dim rc As Long
-Dim lngPos As Long
-Dim strTemp As String
-
     strBuf = New System.Text.StringBuilder
     retVal = GetPrivateProfileString(
                 strSection, strKey, strDefault, strBuf,
-                strBuf.Capacity, strFileName)
+                strBuf.Capacity, fileName)
     getSettingINI = strBuf.ToString()
 End Function
 
 
-Public Sub SaveSettingINI(
-        ByVal strFileName As String,
+Public Sub saveSettingINI(
+        ByVal fileName As String,
         ByVal strSection As String,
         ByVal strKey As String,
         ByVal strData As String)
@@ -106,9 +102,9 @@ Public Sub SaveSettingINI(
 '初期化ファイル(.INIファイル)に設定を書き込む
 'レジストリに用のSaveSettingを初期化ファイル用にしたもの
 '--------------------------------------------------------------------
-Dim rc As Long
+Dim retVal As Integer
 
-    rc = WritePrivateProfileString(strSection, strKey, strData, strFileName)
+    retVal = WritePrivateProfileString(strSection, strKey, strData, fileName)
 End Sub
 
 
