@@ -180,8 +180,10 @@ Dim lngCheckLeftSum As Long, lngCheckTopSum As Long
 
             lngLineSum = lngLineSum + lngNumbers(i)
             If (lngLineSum > lngCols) Then
-                MsgBox "上から" & lngLine + 1 & "行目の、横方向のヒントにエラーがあります。" & _
-                    vbCrLf & "数値の合計が、フィールドの横幅を超えました。"
+                MessageBox.Show(
+                    "上から" & lngLine + 1 &
+                    "行目の、横方向のヒントにエラーがあります。" & vbCrLf &
+                    "数値の合計が、フィールドの横幅を超えました。")
                 LoadGameDataFromStandardFile = False
                 Exit Function
             End If
@@ -194,14 +196,17 @@ Dim lngCheckLeftSum As Long, lngCheckTopSum As Long
         Next i
 
         If (lngLineSum <> lngLineCheckSum) And (lngLineCheckSum > 0) Then
-            MsgBox "上から" & lngLine + 1 & "行目の、横方向のヒントにエラーがあります。" & _
-                vbCrLf & "チェックサムエラーです。" & vbCrLf & _
-                "記録値 = " & lngLineCheckSum & " , 計算値 = " & lngLineSum
+            MessageBox.Show(
+                "上から" & lngLine + 1 &
+                "行目の、横方向のヒントにエラーがあります。" & vbCrLf &
+                "チェックサムエラーです。" & vbCrLf &
+                "記録値 = " & lngLineCheckSum &
+                " , 計算値 = " & lngLineSum)
             LoadGameDataFromStandardFile = False
 '            Exit Function
         End If
         lngCheckLeftSum = lngCheckLeftSum + lngLineSum
-        lpGame.SetYokoHint lngLine, lngCount, lngNumbers(), lngColors()
+        lpGame.SetYokoHint(lngLine, lngCount, lngNumbers, lngColors)
     Next lngLine
 
     '縦方向のヒントデータを読み出す
@@ -221,8 +226,10 @@ Dim lngCheckLeftSum As Long, lngCheckTopSum As Long
 
             lngLineSum = lngLineSum + lngNumbers(i)
             If (lngLineSum > lngRows) Then
-                MsgBox "左から" & lngLine + 1 & "列目の、縦方向のヒントにエラーがあります。" & _
-                    vbCrLf & "数値の合計が、フィールドの高さを超えました。"
+                MessageBox.Show(
+                    "左から" & lngLine + 1 &
+                    "列目の、縦方向のヒントにエラーがあります。" & vbCrLf &
+                    "数値の合計が、フィールドの高さを超えました。")
                 LoadGameDataFromStandardFile = False
                 Exit Function
             End If
@@ -235,20 +242,25 @@ Dim lngCheckLeftSum As Long, lngCheckTopSum As Long
         Next i
 
         If (lngLineSum <> lngLineCheckSum) And (lngLineCheckSum > 0) Then
-            MsgBox "左から" & lngLine + 1 & "列目の、縦方向のヒントにエラーがあります。" & _
-                vbCrLf & "チェックサムエラーです。" & vbCrLf & _
-                "記録値 = " & lngLineCheckSum & " , 計算値 = " & lngLineSum
+            MessageBox.Show(
+                "左から" & lngLine + 1 &
+                "列目の、縦方向のヒントにエラーがあります。" & vbCrLf &
+                "チェックサムエラーです。" & vbCrLf &
+                "記録値 = " & lngLineCheckSum &
+                " , 計算値 = " & lngLineSum)
 '            LoadGameDataFromStandardFile = False
 '            Exit Function
         End If
         lngCheckTopSum = lngCheckTopSum + lngLineSum
-        lpGame.SetTateHint lngLine, lngCount, lngNumbers(), lngColors()
+        lpGame.SetTateHint(lngLine, lngCount, lngNumbers, lngColors)
     Next lngLine
 
     If (lngCheckLeftSum <> lngCheckTopSum) Then
-        MsgBox "この問題は解けません。問題に誤りがあります。" & vbCrLf & _
-            "横方向のヒント数字の合計と、縦方向のヒント数字の合計が一致しません。" & vbCrLf & _
-            "横方向の合計=" & lngCheckLeftSum & " , 縦方向の合計=" & lngCheckTopSum
+        MessageBox.Show(
+            "この問題は解けません。問題に誤りがあります。" & vbCrLf &
+            "横方向のヒント数字の合計と、縦方向のヒント数字の合計が一致しません。" & vbCrLf &
+            "横方向の合計=" & lngCheckLeftSum &
+            " , 縦方向の合計=" & lngCheckTopSum)
     End If
 
     'ロード完了
